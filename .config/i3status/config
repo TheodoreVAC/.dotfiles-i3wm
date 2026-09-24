@@ -1,0 +1,45 @@
+general {
+        colors = true
+        interval = 1
+        separator = ""
+
+        color_good = "#60a5fa"
+        color_bad = "#f87171"
+        color_degraded = "#fbbf24"
+}
+
+order += "wireless _first_"
+order += "ethernet _first_"
+order += "volume master"
+# order += "weather_open_meteo"
+order += "tztime local"
+
+wireless _first_ {
+        format_up = "[   %quality ]"
+        format_down = "[   -- ]"
+}
+
+ethernet _first_ {
+        format_up = "[ 󰈀  %speed ]"
+        format_down = "[ 󰈀  -- ]"
+}
+
+volume master {
+        format = "[   %volume ]"
+        format_muted = "[ 󰖁  muted ]"
+        device = "default"
+        mixer = "Master"
+        mixer_idx = 0
+}
+
+# weather_open_meteo {
+#        cache_timeout = 600
+#        format = "[ {icon} {temperature}°C ]"
+#        latitude = 50.1109
+#        longitude = 8.6821
+#        request_timeout = 5
+# }
+
+tztime local {
+        format = "[   %d.%m.%Y  %H:%M:%S ]"
+}

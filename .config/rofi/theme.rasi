@@ -1,0 +1,230 @@
+* {
+    background: #15191f;
+    background-alt: #1b263b;
+
+    foreground: #b8c7d9;
+    foreground-alt: #6fb7ff;
+
+    blue: #4a9eff;
+    blue-dark: #243b5a;
+    border: #30445f;
+
+    normal-background: #15191f;
+    normal-foreground: #b8c7d9;
+
+    alternate-normal-background: #15191f;
+    alternate-normal-foreground: #b8c7d9;
+
+    active-background: #15191f;
+    active-foreground: #6fb7ff;
+
+    urgent-background: #15191f;
+    urgent-foreground: #ff5555;
+
+    selected-normal-background: #243b5a;
+    selected-normal-foreground: #6fb7ff;
+
+    selected-active-background: #243b5a;
+    selected-active-foreground: #6fb7ff;
+
+    selected-urgent-background: #3a2730;
+    selected-urgent-foreground: #ff5555;
+
+    alternate-active-background: #15191f;
+    alternate-active-foreground: #6fb7ff;
+
+    alternate-urgent-background: #15191f;
+    alternate-urgent-foreground: #ff5555;
+}
+
+
+/* =========================
+   WINDOW
+   ========================= */
+
+window {
+    width: 600px;
+
+    background-color: @background;
+
+    border: 2px;
+    border-color: @blue;
+
+    border-radius: 8px;
+
+    padding: 16px;
+}
+
+
+/* =========================
+   MAIN BOX
+   ========================= */
+
+mainbox {
+    background-color: @background;
+
+    children: [
+        inputbar,
+        listview
+    ];
+
+    spacing: 12px;
+}
+
+
+/* =========================
+   SEARCH
+   ========================= */
+
+inputbar {
+    background-color: @background-alt;
+
+    border: 1px;
+    border-color: @border;
+
+    border-radius: 6px;
+
+    padding: 10px;
+
+    children: [
+        prompt,
+        entry
+    ];
+
+    spacing: 8px;
+}
+
+prompt {
+    text-color: @blue;
+    background-color: transparent;
+}
+
+entry {
+    text-color: @foreground;
+    background-color: transparent;
+}
+
+
+/* =========================
+   LIST
+   ========================= */
+
+listview {
+    background-color: transparent;
+
+    lines: 8;
+    columns: 1;
+
+    spacing: 4px;
+
+    scrollbar: false;
+}
+
+
+/* =========================
+   ELEMENT
+   ========================= */
+
+element {
+    background-color: @normal-background;
+    text-color: @normal-foreground;
+
+    padding: 8px 10px;
+
+    border-radius: 5px;
+
+    spacing: 10px;
+}
+
+
+/* =========================
+   NORMAL
+   ========================= */
+
+element.normal.normal {
+    background-color: @normal-background;
+    text-color: @normal-foreground;
+}
+
+element.normal.active {
+    background-color: @active-background;
+    text-color: @active-foreground;
+}
+
+element.normal.urgent {
+    background-color: @urgent-background;
+    text-color: @urgent-foreground;
+}
+
+
+/* =========================
+   SELECTED
+   ========================= */
+
+element.selected.normal {
+    background-color: @selected-normal-background;
+    text-color: @selected-normal-foreground;
+}
+
+element.selected.active {
+    background-color: @selected-active-background;
+    text-color: @selected-active-foreground;
+}
+
+element.selected.urgent {
+    background-color: @selected-urgent-background;
+    text-color: @selected-urgent-foreground;
+}
+
+
+/* =========================
+   ALTERNATE
+   ========================= */
+
+element.alternate.normal {
+    background-color: @alternate-normal-background;
+    text-color: @alternate-normal-foreground;
+}
+
+element.alternate.active {
+    background-color: @alternate-active-background;
+    text-color: @alternate-active-foreground;
+}
+
+element.alternate.urgent {
+    background-color: @alternate-urgent-background;
+    text-color: @alternate-urgent-foreground;
+}
+
+
+/* =========================
+   TEXT / ICONS
+   ========================= */
+
+element-text {
+    background-color: inherit;
+    text-color: inherit;
+}
+
+element-icon {
+    background-color: inherit;
+}
+
+
+/* =========================
+   MESSAGE
+   ========================= */
+
+message {
+    background-color: @background-alt;
+    text-color: @foreground;
+
+    border-radius: 5px;
+
+    padding: 8px;
+}
+
+textbox {
+    background-color: inherit;
+    text-color: inherit;
+}

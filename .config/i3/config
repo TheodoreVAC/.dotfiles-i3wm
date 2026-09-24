@@ -1,0 +1,297 @@
+# Этот файл был автоматически создан программой i3-config-wizard(1).
+# Он не будет перезаписан, поэтому вы можете изменять его как угодно.
+#
+# Если вы когда-нибудь измените раскладку клавиатуры, удалите
+# этот файл и снова запустите i3-config-wizard(1).
+#
+
+# Файл конфигурации i3 (v4)
+#
+# Полное руководство: https://i3wm.org/docs/userguide.html
+
+set $mod Mod4
+
+# Шрифт для заголовков окон. Также используется панелью,
+# если в блоке bar {} не указан другой шрифт.
+font pango:monospace 11
+
+# Этот шрифт обычно установлен в системе, поддерживает множество Unicode-символов,
+# отображение текста справа налево и масштабирование на Retina/HiDPI-дисплеях (благодаря pango).
+#font pango:DejaVu Sans Mono 8
+
+# Запуск .desktop-файлов XDG autostart с помощью dex.
+# См. также: https://wiki.archlinux.org/index.php/XDG_Autostart
+exec --no-startup-id dex --autostart --environment i3
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+
+# Связка xss-lock, nm-applet и pactl является популярным вариантом,
+# поэтому она приведена здесь в качестве примера.
+# При необходимости настройте её под себя.
+
+# xss-lock перехватывает блокировку при переходе в режим сна
+# и использует i3lock для блокировки экрана перед приостановкой.
+# Для ручной блокировки используйте loginctl lock-session.
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+
+# NetworkManager — один из самых популярных способов управления
+# беспроводными сетями в Linux.
+# nm-applet — графический интерфейс для него, независимый от окружения рабочего стола.
+exec --no-startup-id nm-applet
+
+# Используем pactl для регулировки громкости в PulseAudio.
+set $refresh_i3status killall -SIGUSR1 i3status
+
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+
+
+# Использовать Mouse+$mod для перемещения плавающих окон
+# в нужное положение.
+floating_modifier $mod
+
+# Перемещение тайловых окон перетаскиванием:
+# зажмите левую кнопку мыши на заголовке окна,
+# либо в любом месте окна, удерживая модификатор плавающего режима.
+tiling_drag modifier titlebar
+
+# Запуск терминала
+bindsym $mod+Return exec alacritty
+
+# Закрыть активное окно
+bindsym $mod+Shift+q kill
+
+bindsym $mod+d exec --no-startup-id rofi -show drun -theme ~/.config/rofi/theme.rasi
+
+# Более современная замена dmenu — rofi:
+# bindcode $mod+40 exec "rofi -modi drun,run -show drun"
+
+# Также существует i3-dmenu-desktop, который показывает только приложения,
+# имеющие .desktop-файл. Это оболочка над dmenu, поэтому dmenu должен быть установлен.
+# bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
+
+# Переключение фокуса между окнами
+bindsym $mod+j focus left
+bindsym $mod+k focus down
+bindsym $mod+l focus up
+bindsym $mod+semicolon focus right
+
+# Альтернативно можно использовать клавиши со стрелками:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# Перемещение активного окна
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+k move down
+bindsym $mod+Shift+l move up
+bindsym $mod+Shift+semicolon move right
+
+# Альтернативно можно использовать клавиши со стрелками:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# Разделение по горизонтали
+bindsym $mod+h split h
+
+# Разделение по вертикали
+bindsym $mod+v split v
+
+# Полноэкранный режим для активного контейнера
+bindsym $mod+f fullscreen toggle
+
+# Изменение расположения контейнеров:
+# stacking — стопкой,
+# tabbed — вкладками,
+# toggle split — переключение типа разделения.
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# Запуск файлового менеджера Thunar
+bindsym $mod+t exec thunar
+
+
+# Переключение между тайловым и плавающим режимом
+bindsym $mod+Shift+space floating toggle
+
+# Переключение фокуса между тайловыми и плавающими окнами
+bindsym $mod+space focus mode_toggle
+
+# Перейти к родительскому контейнеру
+bindsym $mod+a focus parent
+
+# Перейти к дочернему контейнеру
+#bindsym $mod+d focus child
+
+# Определяем имена рабочих пространств по умолчанию,
+# для которых ниже будут настроены горячие клавиши.
+# Используем переменные, чтобы не повторять имена несколько раз.
+set $mod Mod4
+
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+# Переключение на рабочее пространство
+bindsym $mod+1 workspace number $ws1
+bindsym $mod+2 workspace number $ws2
+bindsym $mod+3 workspace number $ws3
+bindsym $mod+4 workspace number $ws4
+bindsym $mod+5 workspace number $ws5
+bindsym $mod+6 workspace number $ws6
+bindsym $mod+7 workspace number $ws7
+bindsym $mod+8 workspace number $ws8
+bindsym $mod+9 workspace number $ws9
+bindsym $mod+0 workspace number $ws10
+
+# Переместить активное окно на рабочее пространство
+bindsym $mod+Shift+1 move container to workspace number $ws1
+bindsym $mod+Shift+2 move container to workspace number $ws2
+bindsym $mod+Shift+3 move container to workspace number $ws3
+bindsym $mod+Shift+4 move container to workspace number $ws4
+bindsym $mod+Shift+5 move container to workspace number $ws5
+bindsym $mod+Shift+6 move container to workspace number $ws6
+bindsym $mod+Shift+7 move container to workspace number $ws7
+bindsym $mod+Shift+8 move container to workspace number $ws8
+bindsym $mod+Shift+9 move container to workspace number $ws9
+bindsym $mod+Shift+0 move container to workspace number $ws10
+
+# Перезагрузить файл конфигурации
+bindsym $mod+Shift+c reload
+
+# Перезапустить i3 без выхода из сессии
+# Текущий layout и сессия сохраняются.
+# Можно использовать, например, после обновления i3.
+bindsym $mod+Shift+r restart
+
+# Выйти из i3 (завершает текущую X-сессию)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+
+# Изменение размера окна
+# Также можно использовать мышь.
+mode "resize" {
+
+        # Эти клавиши работают сразу после входа
+        # в режим изменения размера.
+
+        # Влево — уменьшить ширину окна.
+        # Вправо — увеличить ширину окна.
+        # Вверх — уменьшить высоту окна.
+        # Вниз — увеличить высоту окна.
+
+        bindsym j resize shrink width 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym l resize shrink height 10 px or 10 ppt
+        bindsym semicolon resize grow width 10 px or 10 ppt
+
+        # Те же действия с клавишами-стрелками
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # Вернуться в обычный режим:
+        # Enter, Escape или $mod+r
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+
+# Войти в режим изменения размера
+bindsym $mod+r mode "resize"
+
+# Запуск i3bar для отображения панели рабочих пространств
+# и системной информации через i3status
+# bar {
+#        status_command py3status
+#        position top
+#
+#        font pango:JetBrainsMono Nerd Font 11
+#
+#        colors {
+#                background          #000000
+#                statusline           #dbeafe
+#
+#               # Активное рабочее пространство
+#               focused_workspace    #38bdf8 #38bdf8 #06111f
+#                # Рабочее пространство, на котором есть окно,
+#                # но которое сейчас не выбрано
+#                active_workspace     #172554 #172554 #93c5fd
+#
+#                # Неактивное рабочее пространство
+#                inactive_workspace   #000000 #000000 #64748b
+#
+#                # Рабочее пространство с критическим событием
+#                urgent_workspace     #ef4444 #ef4444 #ffffff
+#
+#                # Режим, в котором ожидается ввод клавиши
+#                binding_mode         #f59e0b #f59e0b #06111f
+#        }
+# }
+
+
+bindsym $mod+Mod1+Left workspace prev
+bindsym $mod+Mod1+Right workspace next
+
+
+exec_always --no-startup-id ~/.config/polybar/launch.sh
+
+# Переключение раскладки клавиатуры:
+# US <-> RU с помощью Alt+Shift
+exec_always --no-startup-id setxkbmap -layout us,ru -option grp:alt_shift_toggle
+
+# Управление громкостью
+bindsym F2 exec --no-startup-id wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+bindsym F3 exec --no-startup-id wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+bindsym F4 exec --no-startup-id wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+
+# Установить разрешение 1920x1080 и частоту обновления 165 Гц
+# для HDMI-A-0
+exec_always --no-startup-id xrandr --output HDMI-A-0 --mode 1920x1080 --rate 165
+
+# Скриншоты (maim + slop + xclip)
+
+# Print — выбрать область экрана и скопировать скриншот в буфер обмена
+bindsym Print exec --no-startup-id maim -s - | xclip -selection clipboard -t image/png
+
+# Mod+Print — выбрать область и сохранить скриншот в ~/Pictures
+# Имя файла содержит текущую дату и время
+bindsym $mod+Print exec --no-startup-id maim -s ~/Pictures/$(date +%F_%H-%M-%S).png
+
+# Mod+Shift+Print — сделать скриншот всего экрана
+# и скопировать его в буфер обмена
+bindsym $mod+Shift+Print exec --no-startup-id maim | xclip -selection clipboard -t image/png
+
+# Убираем заголовки и рамки всех окон
+# в обычном (тайловом) режиме
+# Рамки без заголовков
+
+default_border pixel 0
+default_floating_border pixel 2
+
+# Отступы между окнами
+ gaps inner 5
+ gaps outer 5
+
+# Цвета окон
+client.focused          #1686b8 #1686b8 #06111f #1686b8 #1686b8
+client.unfocused        #20345f #20345f #687895 #20345f #20345f
+client.urgent           #b83232 #b83232 #e8e8e8 #b83232 #b83232
+
+# picom
+# Запуск композитора picom с указанным конфигурационным файлом
+exec_always --no-startup-id picom --config ~/.config/picom/picom.conf
+
+# exec_always --no-startup-id feh --bg-fill ~/Wallpapers/pollos-photoaidcom-darken.png

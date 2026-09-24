@@ -1,0 +1,280 @@
+{
+    "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/master/doc/json_schema.json",
+
+    // No logo on the left
+    "logo": {
+        "type": "none"
+    },
+
+    "display": {
+        "separator": " ",
+
+        "key": {
+            "width": 16
+        },
+
+        "color": {
+            "keys": "75",
+            "title": "75",
+            "output": "117"
+        },
+
+        "percent": {
+            "type": 3,
+            "ndigits": 0
+        },
+
+        "bar": {
+            "char": {
+                "elapsed": "━",
+                "total": "─"
+            },
+
+            "width": 10,
+
+            "color": {
+                "elapsed": "75",
+                "total": "25"
+            }
+        }
+    },
+
+    "modules": [
+
+        // ─────────────────────────────────────────────
+        // TITLE
+        // ─────────────────────────────────────────────
+
+        {
+            "type": "title",
+            "format": "{1}@{2}",
+
+            "color": {
+                "user": "75",
+                "at": "75",
+                "host": "117"
+            }
+        },
+
+        "break",
+
+
+        // ─────────────────────────────────────────────
+        // SYSTEM
+        // ─────────────────────────────────────────────
+
+        {
+            "type": "custom",
+            "format": "╭─ System ─────────────────────────────────────────╮",
+            "outputColor": "75"
+        },
+
+        {
+            "type": "os",
+            "key": "├╴ OS       │",
+            "keyColor": "75",
+            "outputColor": "117"
+        },
+
+        {
+            "type": "kernel",
+            "key": "├╴ Kernel   │",
+            "keyColor": "75",
+            "outputColor": "117"
+        },
+
+        {
+            "type": "uptime",
+            "key": "├╴ Uptime   │",
+            "keyColor": "75",
+            "outputColor": "117"
+        },
+
+        {
+            "type": "packages",
+            "key": "├╴󰏖 Packages │",
+            "keyColor": "75",
+            "outputColor": "117"
+        },
+
+        {
+            "type": "wm",
+            "key": "├╴ WM       │",
+            "keyColor": "75",
+            "outputColor": "117"
+        },
+
+        {
+            "type": "shell",
+            "key": "├╴ Shell    │",
+            "keyColor": "75",
+            "outputColor": "117"
+        },
+
+        {
+            "type": "terminal",
+            "key": "├╴ Terminal │",
+            "keyColor": "75",
+            "outputColor": "117"
+        },
+
+        {
+            "type": "terminalfont",
+            "key": "├╴ Font     │",
+            "keyColor": "75",
+            "outputColor": "117"
+        },
+
+        {
+            "type": "custom",
+            "format": "╰───────────────────────────────────────────────────╯",
+            "outputColor": "75"
+        },
+
+        "break",
+
+
+        // ─────────────────────────────────────────────
+        // HARDWARE
+        // ─────────────────────────────────────────────
+
+        {
+            "type": "custom",
+            "format": "╭─ Hardware ────────────────────────────────────────╮",
+            "outputColor": "75"
+        },
+
+        {
+            "type": "cpu",
+            "key": "├╴ CPU      │",
+            "keyColor": "75",
+            "outputColor": "117",
+            "format": "{1} ({3} cores)"
+        },
+
+        {
+            "type": "gpu",
+            "key": "├╴󰾲 GPU      │",
+            "keyColor": "75",
+            "outputColor": "117"
+        },
+
+        {
+            "type": "memory",
+            "key": "├╴ RAM      │",
+            "keyColor": "75",
+            "outputColor": "117"
+        },
+
+        {
+            "type": "disk",
+            "key": "├╴ Disk     │",
+            "keyColor": "75",
+            "outputColor": "117",
+            "format": "{13} {1} / {2} ({3})"
+        },
+
+        {
+            "type": "display",
+            "key": "├╴󰍹 Display  │",
+            "keyColor": "75",
+            "outputColor": "117",
+            "format": "{1}×{2} @ {3}Hz"
+        },
+
+        {
+            "type": "battery",
+            "key": "├╴ Battery  │",
+            "keyColor": "75",
+            "outputColor": "117",
+            "format": "{10} {4} ({5})"
+        },
+
+        {
+            "type": "custom",
+            "format": "╰───────────────────────────────────────────────────╯",
+            "outputColor": "75"
+        },
+
+        "break",
+
+
+        // ─────────────────────────────────────────────
+        // NETWORK
+        // ─────────────────────────────────────────────
+
+        {
+            "type": "custom",
+            "format": "╭─ Network ─────────────────────────────────────────╮",
+            "outputColor": "75"
+        },
+
+        {
+            "type": "localip",
+            "key": "├╴󰩟 IP       │",
+            "keyColor": "75",
+            "outputColor": "117"
+        },
+
+        {
+            "type": "wifi",
+            "key": "├╴  Wi-Fi    │",
+            "keyColor": "75",
+            "outputColor": "117"
+        },
+
+        {
+            "type": "ethernet",
+            "key": "├╴󰈀 Ethernet │",
+            "keyColor": "75",
+            "outputColor": "117"
+        },
+
+        {
+            "type": "custom",
+            "format": "╰───────────────────────────────────────────────────╯",
+            "outputColor": "75"
+        },
+
+        "break",
+
+
+        // ─────────────────────────────────────────────
+        // STATUS
+        // ─────────────────────────────────────────────
+
+        {
+            "type": "custom",
+            "format": "╭─ Status ──────────────────────────────────────────╮",
+            "outputColor": "75"
+        },
+
+        {
+            "type": "loadavg",
+            "key": "├╴󰊚 Load     │",
+            "keyColor": "75",
+            "outputColor": "117"
+        },
+
+        {
+            "type": "swap",
+            "key": "├╴󰓡 Swap     │",
+            "keyColor": "75",
+            "outputColor": "117"
+        },
+
+        {
+            "type": "sound",
+            "key": "├╴ Volume   │",
+            "keyColor": "75",
+            "outputColor": "117",
+            "format": "{5} {3}"
+        },
+
+        {
+            "type": "custom",
+            "format": "╰───────────────────────────────────────────────────╯",
+            "outputColor": "75"
+        }
+    ]
+}
