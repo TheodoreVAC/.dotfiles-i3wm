@@ -1,0 +1,20 @@
+background "#1a1d24"
+
+decorations all
+
+geometry 6x1-4+26
+max_geometry 6x2
+
+icon_size 18
+slot_size 30
+
+icon_gravity SE
+grow_gravity SE
+
+sticky true
+skip_taskbar true
+
+window_layer top
+window_type utility
+
+scrollbars none
