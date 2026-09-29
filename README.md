@@ -4,6 +4,10 @@ My personal dotfiles for Arch Linux and i3wm.
 
 This is the setup I use on my desktop. Nothing here is meant to be a universal configuration — it's just what works for me.
 
+## Screenshot
+
+![i3wm desktop](screenshot/desktop.png)
+
 ## What's here
 
 * **i3** — window manager
