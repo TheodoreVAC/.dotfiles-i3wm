@@ -6,7 +6,7 @@ This is the setup I use on my desktop. Nothing here is meant to be a universal c
 
 ## Screenshot
 
-![i3wm desktop](screenshot/desktop.png)
+![i3wm desktop](screenshots/desktop.png)
 
 ## What's here
 
