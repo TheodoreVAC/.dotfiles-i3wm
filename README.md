@@ -17,7 +17,6 @@ This is the setup I use on my desktop. Nothing here is meant to be a universal c
 * **Picom** — compositor
 * **i3status** — system status
 * **Fastfetch** — system info
-* **Stalonetray** — system tray
 
 ## Structure
 
@@ -30,7 +29,6 @@ This is the setup I use on my desktop. Nothing here is meant to be a universal c
 ├── picom/
 ├── polybar/
 ├── rofi/
-└── stalonetray/
 ```
 
 ## Install
