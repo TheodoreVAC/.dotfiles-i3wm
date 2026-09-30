@@ -17,5 +17,16 @@ for attempt in {1..20}; do
     sleep 0.1
 done
 
+polybar datepill &
+datepill_pid=$!
+
+# Map the compact date bar last so it stays above the main bar's spacer.
+for attempt in {1..20}; do
+    if polybar-msg -p "$datepill_pid" cmd show >/dev/null 2>&1; then
+        break
+    fi
+    sleep 0.1
+done
+
 # Keep the visible bar's top spacing in sync after i3 starts or reloads.
 i3-msg -q gaps top all set 42 >/dev/null 2>&1 || true
