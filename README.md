@@ -78,7 +78,7 @@ The script saves the previous greeter config beside itself before installing the
 - The current monitor is `HDMI-A-0`, set to 1920×1080 at 165 Hz in i3 and Polybar.
 - The Polybar Wi-Fi label reads the active SSID from NetworkManager; Wi-Fi management opens NetworkManager's connection editor.
 - i3 applies `~/Wallpapers/default1.png` with `feh` at startup.
-- Polybar gives each workspace number its own color and displays the date in a separate rounded gray capsule.
+- Polybar gives each workspace number its own color and displays the date in a separate rounded gray capsule. The capsule hides while an i3 window is fullscreen.
 - The setup expects an X11 session, NetworkManager, PipeWire/WirePlumber and the listed fonts.
 
 ## 📁 Repository map
