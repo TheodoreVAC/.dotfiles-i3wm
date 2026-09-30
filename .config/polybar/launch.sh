@@ -17,9 +17,5 @@ for attempt in {1..20}; do
     sleep 0.1
 done
 
-# The date capsule is a separate override-redirect window. Let the watcher
-# start it only when no i3 window is fullscreen, avoiding a visible flash.
-~/.config/polybar/fullscreen-watch.sh "$example_pid" &
-
 # Keep the visible bar's top spacing in sync after i3 starts or reloads.
 i3-msg -q gaps top all set 42 >/dev/null 2>&1 || true
