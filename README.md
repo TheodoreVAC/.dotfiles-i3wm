@@ -20,6 +20,7 @@ Personal desktop setup focused on a dark interface, keyboard driven window manag
 | **Polybar** | Workspaces, window title, audio, Wi-Fi and date |
 | **PulseAudio Volume Control** | Standard sound and microphone mixer |
 | **NetworkManager editor** | Standard Wi-Fi and connection settings |
+| **LightDM GTK Greeter** | Matching dark login screen |
 | **Picom** | X11 compositing, shadows and window appearance |
 | **Rofi** | Application launcher with a matching dark theme |
 | **Alacritty** | Terminal configuration |
@@ -56,16 +57,28 @@ cd ~/dotfiles
 ./scripts/install-configs.sh
 ```
 
-`--desktop` installs the i3/X11, audio, network and font dependencies. The package script uses pacman for Arch packages and yay for AUR packages. It can bootstrap yay when needed.
+`--desktop` installs the i3/X11, LightDM login screen, audio, network and font dependencies. The package script uses pacman for Arch packages and yay for AUR packages. It can bootstrap yay when needed.
 
 To install the broader package set captured from this machine, use `./scripts/install-packages.sh --all` after reviewing `packages/arch-explicit.txt` and `packages/aur-explicit.txt`. This includes unrelated desktop applications and hardware-specific system packages. Dependencies are resolved by pacman/yay; debug split packages and retired panel/tray packages are omitted.
 
 The config installer backs up conflicting files with a timestamped `.pre-dotfiles.*` suffix before linking files from this repo. It installs the included fonts and does not modify `/etc`.
 
+### LightDM login screen
+
+LightDM GTK greeter uses the matching Dracula GTK theme, a solid `#1a202b` background, centered login form, and a compact clock/control panel. After installing the packages, apply its system-wide config with:
+
+```bash
+./scripts/apply-lightdm-greeter.sh
+```
+
+The script saves the previous greeter config beside itself before installing the new one. It is the only provided script that writes under `/etc`; the regular config linker leaves system files alone. The appearance takes effect at the next login; no reboot is needed.
+
 ## 🛠 Machine-specific settings
 
 - The current monitor is `HDMI-A-0`, set to 1920×1080 at 165 Hz in i3 and Polybar.
-- The Polybar Wi-Fi label reads the active SSID from `iwgetid`; Wi-Fi management opens NetworkManager's connection editor.
+- The Polybar Wi-Fi label reads the active SSID from NetworkManager; Wi-Fi management opens NetworkManager's connection editor.
+- i3 applies `~/Wallpapers/default1.png` with `feh` at startup.
+- Polybar gives each workspace number its own color and displays the date in a separate rounded gray capsule.
 - The setup expects an X11 session, NetworkManager, PipeWire/WirePlumber and the listed fonts.
 
 ## 📁 Repository map
@@ -76,7 +89,8 @@ The config installer backs up conflicting files with a timestamped `.pre-dotfile
 ├── inventory/        Desktop and package notes
 ├── packages/         Desktop profile and full package manifests
 ├── screenshots/      Desktop previews
-└── scripts/          Package, config and manifest helpers
+├── scripts/          Package, config and manifest helpers
+└── system/           Optional system-wide LightDM greeter config
 ```
 
 ## 🔄 Refresh package manifests
