@@ -17,20 +17,9 @@ for attempt in {1..20}; do
     sleep 0.1
 done
 
-polybar datepill &
-datepill_pid=$!
-
-# Map the compact date bar last so it stays above the main bar's spacer.
-for attempt in {1..20}; do
-    if polybar-msg -p "$datepill_pid" cmd show >/dev/null 2>&1; then
-        break
-    fi
-    sleep 0.1
-done
-
-# The date capsule is a separate override-redirect window, so i3 cannot
-# automatically hide it with the main bar in fullscreen mode.
-~/.config/polybar/fullscreen-watch.sh "$datepill_pid" &
+# The date capsule is a separate override-redirect window. Let the watcher
+# start it only when no i3 window is fullscreen, avoiding a visible flash.
+~/.config/polybar/fullscreen-watch.sh "$example_pid" &
 
 # Keep the visible bar's top spacing in sync after i3 starts or reloads.
 i3-msg -q gaps top all set 42 >/dev/null 2>&1 || true
