@@ -3,7 +3,6 @@ amass
 amd-ucode
 amneziawg-go
 amneziawg-tools
-aylurs-gtk-shell
 base
 base-devel
 bind
@@ -51,7 +50,6 @@ keepass
 lazygit
 legacy-launcher
 less
-libastal-wireplumber-git
 libpulse
 libva-intel-driver
 libva-utils

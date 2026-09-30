@@ -6,7 +6,7 @@ package_dir="$repo_dir/packages"
 mkdir -p "$package_dir"
 
 # Don't add retired panel/tray packages or split debug outputs back to the install snapshot.
-pacman -Qqe | grep -Ev -- '(^waybar$|^stalonetray$|-debug$)' | sort -u > "$package_dir/explicit-installed.txt"
+pacman -Qqe | grep -Ev -- '(^waybar$|^stalonetray$|^aylurs-gtk-shell$|^libastal-.*|-debug$)' | sort -u > "$package_dir/explicit-installed.txt"
 
 foreign_explicit="$(mktemp)"
 trap 'rm -f "$foreign_explicit"' EXIT

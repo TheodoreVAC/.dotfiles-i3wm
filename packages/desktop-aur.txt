@@ -1,7 +1,2 @@
-aylurs-gtk-shell
 dracula-gtk-theme
-libastal-4-git
-libastal-git
-libastal-io-git
-libastal-wireplumber-git
 yay

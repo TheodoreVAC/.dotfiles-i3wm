@@ -273,8 +273,8 @@ exec_always --no-startup-id setxkbmap -layout us,ru -option grp:alt_shift_toggle
 bindsym F2 exec --no-startup-id wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
 bindsym F3 exec --no-startup-id wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
 bindsym F4 exec --no-startup-id wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
-bindsym $mod+F10 exec --no-startup-id ~/.config/polybar/toggle-sound.sh
-bindsym $mod+F9 exec --no-startup-id ~/.config/ags/toggle-wifi.sh
+bindsym $mod+F10 exec --no-startup-id pavucontrol
+bindsym $mod+F9 exec --no-startup-id nm-connection-editor
 
 # Установить разрешение 1920x1080 и частоту обновления 165 Гц
 # для HDMI-A-0
@@ -316,10 +316,3 @@ client.urgent           #F38BA8 #F38BA8 #FFFFFF #F38BA8 #F38BA8
 exec_always --no-startup-id picom --config ~/.config/picom/picom.conf
 
 # exec_always --no-startup-id feh --bg-fill ~/Wallpapers/pollos-photoaidcom-darken.png
-
-for_window [title="Sound"] floating enable
-for_window [title="Sound"] border pixel 0
-for_window [title="Sound"] move position center
-for_window [title="Wi-Fi"] floating enable
-for_window [title="Wi-Fi"] border pixel 0
-for_window [title="Wi-Fi"] move position center
