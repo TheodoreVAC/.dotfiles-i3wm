@@ -1,67 +1,94 @@
-# .dotfiles-i3wm
+<div align="center">
 
-My personal dotfiles for Arch Linux and i3wm.
+# Arch Linux · i3wm · X11
 
-This is the setup I use on my desktop. Nothing here is meant to be a universal configuration — it's just what works for me.
+Personal desktop setup focused on a clean dark interface, keyboard driven window management, and matching Polybar and AGS controls.
 
-## Screenshot
+![Arch Linux](https://img.shields.io/badge/Arch_Linux-1793D1?style=for-the-badge&logo=arch-linux&logoColor=white)
+![i3wm](https://img.shields.io/badge/i3wm-222222?style=for-the-badge&logo=i3&logoColor=white)
+![X11](https://img.shields.io/badge/X11-555555?style=for-the-badge&logo=x.org&logoColor=white)
 
-![i3wm desktop](screenshots/desktop.png)
+</div>
 
-## What's here
+![Desktop screenshot](screenshots/desktop.png)
 
-* **i3** — window manager
-* **Polybar** — status bar
-* **Rofi** — application launcher
-* **Alacritty** — terminal
-* **Picom** — compositor
-* **i3status** — system status
-* **Fastfetch** — system info
+## ✨ What's included
 
-## Structure
+| Component | Role |
+| --- | --- |
+| **i3** | Tiling, floating windows, key bindings and workspace behavior |
+| **Polybar** | Workspaces, window title, audio, Wi-Fi and date |
+| **AGS** | Styled sound, microphone and Wi-Fi windows |
+| **Picom** | X11 compositing, shadows and window appearance |
+| **Rofi** | Application launcher with a matching dark theme |
+| **Alacritty** | Terminal configuration |
+| **i3status** | Retained status-line configuration |
+| **Fonts** | Adwaita Mono Nerd Font plus Nerd Font symbols |
 
-```text
-.config/
-├── alacritty/
-├── fastfetch/
-├── i3/
-├── i3status/
-├── picom/
-├── polybar/
-├── rofi/
-```
+The repository also contains the Xinit entry point, GTK appearance settings, Fastfetch config, package manifests, and scripts to install packages and link the dotfiles.
 
-## Install
+## ⌨️ Key bindings
 
-Clone the repo:
+The main modifier is **Super**.
+
+| Keys | Action |
+| --- | --- |
+| `Super + Enter` | Open terminal |
+| `Super + D` | Open application launcher |
+| `Super + T` | Open Thunar |
+| `Super + F9` | Open Wi-Fi controls |
+| `Super + F10` | Open sound and microphone controls |
+| `Super + F11` | Toggle the active window title in Polybar |
+| `Super + F12` | Toggle the system tray |
+| `Print` | Save a full-screen screenshot and copy it to clipboard |
+| `Super + Print` | Select an area, save it and copy it to clipboard |
+| `F2` / `F3` / `F4` | Lower / raise / mute audio |
+
+## 🚀 Installation
+
+Review the package manifests and hardware settings before running the scripts.
 
 ```bash
 git clone https://github.com/TheodoreVAC/.dotfiles-i3wm.git ~/dotfiles
-```
-
-Copy the configs:
-
-```bash
-cp -r ~/dotfiles/.config/* ~/.config/
-```
-
-That's it.
-
-If you already have configs in `~/.config`, make a backup first.
-
-## Updating
-
-After changing something:
-
-```bash
 cd ~/dotfiles
-git add .
-git commit -m "Update config"
-git push
+./scripts/install-packages.sh --desktop
+./scripts/install-configs.sh
 ```
 
-## Notes
+`--desktop` installs the i3/X11, audio, network, font and AGS dependencies. The package script uses pacman for Arch packages and yay for AUR packages. It can bootstrap yay when needed.
 
-These configs are made for my own setup, so some things may need to be changed depending on your hardware, monitor layout, installed fonts, and applications.
+To install the broader package set captured from this machine, use `./scripts/install-packages.sh --all` after reviewing `packages/arch-explicit.txt` and `packages/aur-explicit.txt`. This includes unrelated desktop applications and hardware-specific system packages. Dependencies are resolved by pacman/yay; debug split packages and retired panel/tray packages are omitted.
 
-Use whatever you need and change the rest.
+The config installer backs up conflicting files with a timestamped `.pre-dotfiles.*` suffix before linking files from this repo. It installs the included fonts and creates the AGS module links. It does not modify `/etc`.
+
+## 🛠 Machine-specific settings
+
+- The current monitor is `HDMI-A-0`, set to 1920×1080 at 165 Hz in i3 and Polybar.
+- Wi-Fi uses `wlp10s0` by default. Set `WIFI_INTERFACE` to override it for AGS.
+- The setup expects an X11 session, NetworkManager, PipeWire/WirePlumber and the listed fonts.
+
+## 📁 Repository map
+
+```text
+├── .config/          Active application and desktop configs
+├── .local/share/     Included font files and licenses
+├── archive/          Older AGS version retained for reference
+├── inventory/        Desktop and package notes
+├── packages/         Desktop profile and full package manifests
+├── screenshots/      Desktop previews
+└── scripts/          Package, config and manifest helpers
+```
+
+## 🔄 Refresh package manifests
+
+After changing installed software on this machine, run:
+
+```bash
+./scripts/capture-package-manifest.sh
+```
+
+This only updates package list files in the repository; it does not install or remove software.
+
+## License
+
+Configuration files are shared for personal use and adaptation. Bundled font files remain under their upstream license; see `.local/share/fonts/LICENSE` and `README.md` in that directory.

@@ -1,0 +1,197 @@
+window.sound-window {
+    background-color: transparent;
+    color: #D8DEE9;
+    font-family: "AdwaitaMono Nerd Font";
+}
+
+.sound-panel {
+    min-width: 420px;
+    padding: 20px;
+
+    background-color: #1a202b;
+    color: #D8DEE9;
+
+    border: 1px solid #454A54;
+    border-radius: 8px;
+}
+
+.window-title {
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.audio-section {
+    padding: 14px;
+    background-color: #161B24;
+    border: 1px solid #272e3a;
+    border-radius: 7px;
+}
+
+.device-icon {
+    min-width: 24px;
+    color: #89B4FA;
+    font-size: 16px;
+}
+
+.section-title {
+    color: #D8DEE9;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.device-select,
+.device-select button {
+    min-height: 34px;
+    padding: 4px 8px;
+    color: #D8DEE9;
+    background-color: #202936;
+    border: 1px solid #454A54;
+    border-radius: 5px;
+}
+
+.device-select button:hover {
+    border-color: #89B4FA;
+}
+
+dropdown.device-select popover.menu {
+    padding: 0;
+    background-color: transparent;
+    border: 0;
+    box-shadow: none;
+}
+
+dropdown.device-select popover.menu contents {
+    padding: 4px;
+    color: #D8DEE9;
+    background-color: #1a202b;
+    border: 1px solid #454A54;
+    border-radius: 7px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.40);
+}
+
+dropdown.device-select popover.menu scrolledwindow,
+dropdown.device-select popover.menu listview {
+    color: #D8DEE9;
+    background-color: transparent;
+}
+
+dropdown.device-select popover.menu listview > row {
+    min-height: 34px;
+    padding: 5px 9px;
+    color: #D8DEE9;
+    background-color: transparent;
+    border-radius: 5px;
+}
+
+dropdown.device-select popover.menu listview > row:hover {
+    color: #FFFFFF;
+    background-color: #202936;
+}
+
+dropdown.device-select popover.menu listview > row:selected {
+    color: #1a202b;
+    background-color: #89B4FA;
+}
+
+.volume-controls {
+    min-height: 28px;
+}
+
+.volume-slider trough {
+    min-height: 6px;
+    border-radius: 4px;
+    background-color: #454A54;
+}
+
+.volume-slider highlight {
+    min-height: 6px;
+    border-radius: 4px;
+    background-color: #89B4FA;
+}
+
+.volume-slider slider {
+    min-width: 14px;
+    min-height: 14px;
+    border: 2px solid #1a202b;
+    border-radius: 50%;
+    background-color: #89B4FA;
+}
+
+.volume-value {
+    min-width: 42px;
+    color: #D8DEE9;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.mute-button,
+.mixer-button,
+.close-button {
+    min-height: 30px;
+    padding: 4px 10px;
+    color: #D8DEE9;
+    background-color: #202936;
+    border: 1px solid #454A54;
+    border-radius: 5px;
+}
+
+.mute-button:hover,
+.mixer-button:hover,
+.close-button:hover {
+    color: #1a202b;
+    background-color: #89B4FA;
+}
+
+.mute-button.muted {
+    color: #1a202b;
+    background-color: #F38BA8;
+    border-color: #F38BA8;
+}
+
+.wifi-row {
+    min-height: 60px;
+    padding: 8px 10px;
+    background-color: #161B24;
+    border: 1px solid #272e3a;
+    border-radius: 7px;
+}
+
+.wifi-icon {
+    min-width: 24px;
+    color: #6F7785;
+    font-size: 16px;
+}
+
+.wifi-name {
+    color: #D8DEE9;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.wifi-subtitle,
+.wifi-empty {
+    color: #6F7785;
+    font-size: 11px;
+}
+
+.wifi-button,
+.wifi-password {
+    min-height: 32px;
+    padding: 4px 10px;
+    color: #D8DEE9;
+    background-color: #202936;
+    border: 1px solid #454A54;
+    border-radius: 5px;
+}
+
+.wifi-button:hover {
+    color: #1a202b;
+    background-color: #89B4FA;
+}
+
+.wifi-empty {
+    padding: 24px 12px;
+    background-color: #161B24;
+    border-radius: 7px;
+}

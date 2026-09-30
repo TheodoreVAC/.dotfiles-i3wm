@@ -5,6 +5,10 @@
 .env
 .env.*
 
+# Local installation logs and backup copies
+*.install.log
+*.pre-dotfiles.*
+
 # Temporary / backup files
 *.tmp
 *.bak

@@ -11,9 +11,12 @@
 
 set $mod Mod4
 
-# Шрифт для заголовков окон. Также используется панелью,
-# если в блоке bar {} не указан другой шрифт.
-font pango:monospace 11
+# Единый шрифт без заголовков; Polybar использует свой шрифт.
+font pango:AdwaitaMono Nerd Font 11
+
+# Не переключать фокус при случайном движении мыши.
+focus_follows_mouse no
+mouse_warping none
 
 # Этот шрифт обычно установлен в системе, поддерживает множество Unicode-символов,
 # отображение текста справа налево и масштабирование на Retina/HiDPI-дисплеях (благодаря pango).
@@ -121,6 +124,7 @@ bindsym $mod+Shift+space floating toggle
 
 # Переключение фокуса между тайловыми и плавающими окнами
 bindsym $mod+space focus mode_toggle
+bindsym $mod+Tab workspace back_and_forth
 
 # Перейти к родительскому контейнеру
 bindsym $mod+a focus parent
@@ -181,6 +185,13 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 # Изменение размера окна
 # Также можно использовать мышь.
+# Изменять размер текущего окна, не входя в отдельный режим.
+bindsym $mod+Ctrl+Left resize shrink width 5 px or 5 ppt
+bindsym $mod+Ctrl+Down resize grow height 5 px or 5 ppt
+bindsym $mod+Ctrl+Up resize shrink height 5 px or 5 ppt
+bindsym $mod+Ctrl+Right resize grow width 5 px or 5 ppt
+
+# Для более точной настройки доступен отдельный режим по $mod+r.
 mode "resize" {
 
         # Эти клавиши работают сразу после входа
@@ -191,16 +202,16 @@ mode "resize" {
         # Вверх — уменьшить высоту окна.
         # Вниз — увеличить высоту окна.
 
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym semicolon resize grow width 10 px or 10 ppt
+        bindsym j resize shrink width 5 px or 5 ppt
+        bindsym k resize grow height 5 px or 5 ppt
+        bindsym l resize shrink height 5 px or 5 ppt
+        bindsym semicolon resize grow width 5 px or 5 ppt
 
         # Те же действия с клавишами-стрелками
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+        bindsym Left resize shrink width 5 px or 5 ppt
+        bindsym Down resize grow height 5 px or 5 ppt
+        bindsym Up resize shrink height 5 px or 5 ppt
+        bindsym Right resize grow width 5 px or 5 ppt
 
         # Вернуться в обычный режим:
         # Enter, Escape или $mod+r
@@ -250,6 +261,8 @@ bindsym $mod+Mod1+Right workspace next
 # ==========================================================
 
 exec_always --no-startup-id ~/.config/polybar/launch.sh
+bindsym $mod+F12 exec --no-startup-id polybar-msg action "#tray.module_toggle"
+bindsym $mod+F11 exec --no-startup-id polybar-msg action "#xwindow.module_toggle"
 
 
 # Переключение раскладки клавиатуры:
@@ -260,6 +273,8 @@ exec_always --no-startup-id setxkbmap -layout us,ru -option grp:alt_shift_toggle
 bindsym F2 exec --no-startup-id wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
 bindsym F3 exec --no-startup-id wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
 bindsym F4 exec --no-startup-id wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+bindsym $mod+F10 exec --no-startup-id ~/.config/polybar/toggle-sound.sh
+bindsym $mod+F9 exec --no-startup-id ~/.config/ags/toggle-wifi.sh
 
 # Установить разрешение 1920x1080 и частоту обновления 165 Гц
 # для HDMI-A-0
@@ -267,36 +282,32 @@ exec_always --no-startup-id xrandr --output HDMI-A-0 --mode 1920x1080 --rate 165
 
 # Скриншоты (maim + slop + xclip)
 
-# Print — выбрать область экрана и скопировать скриншот в буфер обмена
-bindsym Print exec --no-startup-id maim -s - | xclip -selection clipboard -t image/png
+# Print — весь экран: сохранить в Pictures и скопировать в буфер.
+bindsym Print exec --no-startup-id maim | tee ~/Pictures/$(date +%F_%H-%M-%S).png | xclip -selection clipboard -t image/png
 
-# Mod+Print — выбрать область и сохранить скриншот в ~/Pictures
-# Имя файла содержит текущую дату и время
-bindsym $mod+Print exec --no-startup-id maim -s ~/Pictures/$(date +%F_%H-%M-%S).png
-
-# Mod+Shift+Print — сделать скриншот всего экрана
-# и скопировать его в буфер обмена
-bindsym $mod+Shift+Print exec --no-startup-id maim | xclip -selection clipboard -t image/png
+# Super+Print — выделенная область: сохранить в Pictures и скопировать в буфер.
+bindsym $mod+Print exec --no-startup-id maim -s | tee ~/Pictures/$(date +%F_%H-%M-%S).png | xclip -selection clipboard -t image/png
 
 # Убираем заголовки и рамки всех окон
 # в обычном (тайловом) режиме
 # Рамки без заголовков
 
 default_border pixel 3
-default_floating_border pixel 1
+default_floating_border pixel 2
+smart_borders on
 
 # Отступы между окнами
- gaps inner 5
- gaps outer 5
- gaps top 42
+gaps inner 5
+gaps outer 5
+gaps top 42
 
 # Цвета окон
 
 # Активное окно — голубой как активный workspace Polybar
-client.focused          #89B4FA #89B4FA #FFFFFF #89B4FA #89B4FA
+client.focused          #89B4FA #89B4FA #1A202B #89B4FA #89B4FA
 
 # Неактивное окно — тёмный холодный серый
-client.unfocused        #454A54 #454A54 #A6ACB9 #454A54 #454A54
+client.unfocused        #454A54 #454A54 #D8DEE9 #454A54 #454A54
 
 # Срочное окно
 client.urgent           #F38BA8 #F38BA8 #FFFFFF #F38BA8 #F38BA8
@@ -305,3 +316,10 @@ client.urgent           #F38BA8 #F38BA8 #FFFFFF #F38BA8 #F38BA8
 exec_always --no-startup-id picom --config ~/.config/picom/picom.conf
 
 # exec_always --no-startup-id feh --bg-fill ~/Wallpapers/pollos-photoaidcom-darken.png
+
+for_window [title="Sound"] floating enable
+for_window [title="Sound"] border pixel 0
+for_window [title="Sound"] move position center
+for_window [title="Wi-Fi"] floating enable
+for_window [title="Wi-Fi"] border pixel 0
+for_window [title="Wi-Fi"] move position center
