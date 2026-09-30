@@ -16,3 +16,7 @@ for attempt in {1..20}; do
     fi
     sleep 0.1
 done
+
+# Keep the visible bar's top spacing in sync after i3 starts or reloads.
+rm -f -- "${XDG_RUNTIME_DIR:-/tmp}/.polybar-hidden"
+i3-msg -q gaps top all set 42 >/dev/null 2>&1 || true

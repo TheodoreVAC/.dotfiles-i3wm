@@ -261,7 +261,7 @@ bindsym $mod+Mod1+Right workspace next
 # ==========================================================
 
 exec_always --no-startup-id ~/.config/polybar/launch.sh
-bindsym $mod+F8 exec --no-startup-id polybar-msg cmd toggle
+bindsym $mod+F8 exec --no-startup-id ~/.config/polybar/toggle-visibility.sh
 bindsym $mod+F12 exec --no-startup-id polybar-msg action "#tray.module_toggle"
 bindsym $mod+F11 exec --no-startup-id polybar-msg action "#xwindow.module_toggle"
 
