@@ -294,7 +294,6 @@ bindsym $mod+Print exec --no-startup-id maim -s | tee ~/Pictures/$(date +%F_%H-%
 
 default_border pixel 3
 default_floating_border pixel 2
-smart_borders off
 
 # Отступы между окнами
 gaps inner 5
