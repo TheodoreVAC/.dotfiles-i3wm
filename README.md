@@ -39,8 +39,8 @@ The main modifier is **Super**.
 | `Super + T` | Open Thunar |
 | `Super + F9` | Open NetworkManager connection settings |
 | `Super + F10` | Open the sound and microphone mixer |
-| `Super + F11` | Toggle the active window title in Polybar |
-| `Super + F12` | Toggle the system tray |
+| `Super + F11` | Toggle the system tray |
+| `Super + F12` | Toggle the active window title in Polybar |
 | `Print` | Save a full-screen screenshot and copy it to clipboard |
 | `Super + Print` | Select an area, save it and copy it to clipboard |
 | `F2` / `F3` / `F4` | Lower / raise / mute audio |

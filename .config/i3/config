@@ -261,8 +261,8 @@ bindsym $mod+Mod1+Right workspace next
 # ==========================================================
 
 exec_always --no-startup-id ~/.config/polybar/launch.sh
-bindsym $mod+F12 exec --no-startup-id polybar-msg action "#tray.module_toggle"
-bindsym $mod+F11 exec --no-startup-id polybar-msg action "#xwindow.module_toggle"
+bindsym $mod+F11 exec --no-startup-id polybar-msg action "#tray.module_toggle"
+bindsym $mod+F12 exec --no-startup-id polybar-msg action "#xwindow.module_toggle"
 
 
 # Переключение раскладки клавиатуры:
@@ -294,7 +294,7 @@ bindsym $mod+Print exec --no-startup-id maim -s | tee ~/Pictures/$(date +%F_%H-%
 
 default_border pixel 3
 default_floating_border pixel 2
-smart_borders on
+smart_borders off
 
 # Отступы между окнами
 gaps inner 5
