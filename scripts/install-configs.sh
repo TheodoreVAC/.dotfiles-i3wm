@@ -39,7 +39,6 @@ done <<'FILES'
 .config/picom/picom.conf
 .config/polybar/config.ini
 .config/polybar/launch.sh
-.config/polybar/toggle-visibility.sh
 .config/polybar/wifi-status.sh
 .config/rofi/theme.rasi
 FILES

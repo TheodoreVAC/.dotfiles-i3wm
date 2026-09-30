@@ -6,10 +6,6 @@ while pgrep -u "$UID" -x polybar >/dev/null; do
     sleep 0.2
 done
 
-runtime_dir="${XDG_RUNTIME_DIR:-/tmp}"
-mkdir -p "$runtime_dir"
-rm -f -- "$runtime_dir/.polybar-hidden"
-
 polybar example &
 example_pid=$!
 
