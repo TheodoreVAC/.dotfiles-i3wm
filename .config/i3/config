@@ -261,6 +261,7 @@ bindsym $mod+Mod1+Right workspace next
 # ==========================================================
 
 exec_always --no-startup-id ~/.config/polybar/launch.sh
+bindsym $mod+F8 exec --no-startup-id polybar-msg cmd toggle
 bindsym $mod+F12 exec --no-startup-id polybar-msg action "#tray.module_toggle"
 bindsym $mod+F11 exec --no-startup-id polybar-msg action "#xwindow.module_toggle"
 
@@ -314,5 +315,6 @@ client.urgent           #F38BA8 #F38BA8 #FFFFFF #F38BA8 #F38BA8
 # picom
 # Запуск композитора picom с указанным конфигурационным файлом
 exec_always --no-startup-id picom --config ~/.config/picom/picom.conf
+exec_always --no-startup-id feh --bg-fill ~/Wallpapers/default1.png
 
 # exec_always --no-startup-id feh --bg-fill ~/Wallpapers/pollos-photoaidcom-darken.png
