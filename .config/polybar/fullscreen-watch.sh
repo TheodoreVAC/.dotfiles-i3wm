@@ -3,6 +3,9 @@ set -euo pipefail
 
 datepill_pid="${1:?Usage: fullscreen-watch.sh POLYBAR_PID}"
 
+# Shell sessions may retain an I3SOCK path from an earlier i3 process.
+unset I3SOCK
+
 sync_datepill() {
     local fullscreen
     fullscreen="$(i3-msg -t get_tree | jq '[.. | objects | select(.fullscreen_mode? == 1)] | length > 0')"
