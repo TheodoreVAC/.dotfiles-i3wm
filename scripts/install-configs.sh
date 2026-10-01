@@ -41,7 +41,6 @@ done <<'FILES'
 .config/polybar/launch.sh
 .config/polybar/wifi-status.sh
 .config/rofi/config.rasi
-.config/rofi/theme.rasi
 FILES
 
 font_dir="$repo_dir/.local/share/fonts"
