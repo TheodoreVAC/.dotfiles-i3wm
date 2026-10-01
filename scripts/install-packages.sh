@@ -29,7 +29,9 @@ mapfile -t arch_packages < <(grep -Ev '^[[:space:]]*(#|$)' "$arch_file")
 mapfile -t aur_packages < <(grep -Ev '^[[:space:]]*(#|$)' "$aur_file")
 
 if ((${#arch_packages[@]})); then
-    sudo pacman -S --needed "${arch_packages[@]}"
+    # Arch Linux does not support partial upgrades. Sync and upgrade the full
+    # system in the same transaction as the requested packages.
+    sudo pacman -Syu --needed "${arch_packages[@]}"
 fi
 
 if ! command -v yay >/dev/null 2>&1; then
