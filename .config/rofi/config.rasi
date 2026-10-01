@@ -1,0 +1,145 @@
+/* Zproger's Rofi layout, recolored to match the local Polybar palette. */
+
+* {
+    bg-col:       #1a202b;
+    bg-col-light: #202936;
+    border-col:   #161B24;
+    selected-col: #303b4d;
+    fg-col:       #D8DEE9;
+    fg-col2:      #89B4FA;
+    blue:         #89B4FA;
+    grey:         #6F7785;
+
+    /* Override Rofi's built-in light palette used by state-specific rows. */
+    background:                   #1a202b;
+    foreground:                   #D8DEE9;
+    lightbg:                      #202936;
+    lightfg:                      #D8DEE9;
+    red:                          #F38BA8;
+    normal-background:            #1a202b;
+    normal-foreground:            #D8DEE9;
+    alternate-normal-background:  #1a202b;
+    alternate-normal-foreground:  #D8DEE9;
+    active-background:            #1a202b;
+    active-foreground:            #A6E3A1;
+    urgent-background:            #1a202b;
+    urgent-foreground:            #F38BA8;
+    selected-normal-background:   #303b4d;
+    selected-normal-foreground:   #D8DEE9;
+    selected-active-background:   #303b4d;
+    selected-active-foreground:   #D8DEE9;
+    selected-urgent-background:  #303b4d;
+    selected-urgent-foreground:  #D8DEE9;
+    alternate-active-background: #1a202b;
+    alternate-active-foreground: #A6E3A1;
+    alternate-urgent-background: #1a202b;
+    alternate-urgent-foreground: #F38BA8;
+}
+
+configuration {
+    modi: "drun";
+    lines: 6;
+    font: "AdwaitaMono Nerd Font Bold 14";
+    show-icons: true;
+    icon-theme: "Papirus-dark";
+    terminal: "alacritty";
+    drun-display-format: "{icon} {name}";
+    location: 0;
+    disable-history: false;
+    hide-scrollbar: true;
+    sidebar-mode: false;
+}
+
+element-text, element-icon, mode-switcher {
+    background-color: inherit;
+    text-color: inherit;
+}
+
+window {
+    width: 800px;
+    height: 500px;
+    border: 3px;
+    border-color: @border-col;
+    background-color: @bg-col;
+}
+
+mainbox {
+    background-color: @bg-col;
+}
+
+inputbar {
+    children: [prompt, entry];
+    background-color: @bg-col;
+    border-radius: 5px;
+    padding: 2px;
+}
+
+prompt {
+    background-color: @blue;
+    padding: 6px;
+    text-color: @bg-col;
+    border-radius: 3px;
+    margin: 20px 0px 0px 20px;
+}
+
+textbox-prompt-colon {
+    expand: false;
+    str: ":";
+}
+
+entry {
+    padding: 6px;
+    margin: 20px 0px 0px 10px;
+    text-color: @fg-col;
+    background-color: @bg-col;
+    placeholder: "Search";
+}
+
+listview {
+    border: 0px;
+    padding: 6px 0px 0px;
+    margin: 10px 0px 0px 20px;
+    columns: 2;
+    background-color: @bg-col;
+}
+
+element {
+    padding: 5px;
+    background-color: @bg-col;
+    text-color: @fg-col;
+}
+
+element-icon {
+    size: 30px;
+}
+
+element selected {
+    background-color: @selected-col;
+    text-color: @fg-col2;
+}
+
+/* Rofi applies state-specific selected rules after the generic selector. */
+element selected.normal,
+element selected.active,
+element selected.urgent {
+    background-color: @selected-col;
+    text-color: @fg-col2;
+    border: 0px;
+}
+
+mode-switcher {
+    spacing: 0;
+}
+
+button {
+    padding: 10px;
+    background-color: @bg-col-light;
+    text-color: @grey;
+    vertical-align: 0.5;
+    horizontal-align: 0.5;
+}
+
+button selected {
+    background-color: @bg-col;
+    text-color: @blue;
+}

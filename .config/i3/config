@@ -65,7 +65,7 @@ bindsym $mod+Return exec alacritty
 # Закрыть активное окно
 bindsym $mod+Shift+q kill
 
-bindsym $mod+d exec --no-startup-id rofi -show drun -theme ~/.config/rofi/theme.rasi
+bindsym $mod+d exec --no-startup-id rofi -show drun
 
 # Более современная замена dmenu — rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"

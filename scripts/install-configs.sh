@@ -40,6 +40,7 @@ done <<'FILES'
 .config/polybar/config.ini
 .config/polybar/launch.sh
 .config/polybar/wifi-status.sh
+.config/rofi/config.rasi
 .config/rofi/theme.rasi
 FILES
 
