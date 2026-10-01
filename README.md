@@ -1,108 +1,43 @@
 <div align="center">
 
-# Arch Linux · i3wm · X11
+# TheodoreVAC · i3 dotfiles
 
-Personal desktop setup focused on a dark interface, keyboard driven window management, and a compact Polybar status bar.
-
-![Arch Linux](https://img.shields.io/badge/Arch_Linux-1793D1?style=for-the-badge&logo=arch-linux&logoColor=white)
-![i3wm](https://img.shields.io/badge/i3wm-222222?style=for-the-badge&logo=i3&logoColor=white)
-![X11](https://img.shields.io/badge/X11-555555?style=for-the-badge&logo=x.org&logoColor=white)
+Arch Linux · X11 · i3 · Polybar
 
 </div>
 
-![Desktop screenshot](screenshots/desktop.png)
+![Рабочий стол](screenshots/desktop.png)
 
-## ✨ What's included
+Моя конфигурация рабочего стола i3 с тёмной темой. Репозиторий содержит конфиги, установщик и используемые шрифты. Пакетные списки, снимки установленных программ и системный инвентарь сюда не входят.
 
-| Component | Role |
-| --- | --- |
-| **i3** | Tiling, floating windows, key bindings and workspace behavior |
-| **Polybar** | Workspaces, window title, audio, Wi-Fi and date |
-| **PulseAudio Volume Control** | Standard sound and microphone mixer |
-| **NetworkManager editor** | Standard Wi-Fi and connection settings |
-| **LightDM GTK Greeter** | Matching dark login screen |
-| **Picom** | X11 compositing, shadows and window appearance |
-| **Rofi** | Application launcher with a matching dark theme |
-| **Alacritty** | Terminal configuration |
-| **i3status** | Retained status-line configuration |
-| **Fonts** | Adwaita Mono Nerd Font plus Nerd Font symbols |
-
-The repository also contains the Xinit entry point, GTK appearance settings, Fastfetch config, a themed Zsh setup, package manifests, and scripts to install packages and link the dotfiles.
-
-## ⌨️ Key bindings
-
-The main modifier is **Super**.
-
-| Keys | Action |
-| --- | --- |
-| `Super + Enter` | Open terminal |
-| `Super + D` | Open application launcher |
-| `Super + T` | Open Thunar |
-| `Super + F9` | Open NetworkManager connection settings |
-| `Super + F10` | Open the sound and microphone mixer |
-| `Super + F11` | Toggle the system tray |
-| `Super + F12` | Toggle the active window title in Polybar |
-| `Print` | Save a full-screen screenshot and copy it to clipboard |
-| `Super + Print` | Select an area, save it and copy it to clipboard |
-| `F2` / `F3` / `F4` | Lower / raise / mute audio |
-
-## 🚀 Installation
-
-Review the package manifests and hardware settings before running the scripts.
+## Установка
 
 ```bash
 git clone https://github.com/TheodoreVAC/.dotfiles-i3wm.git ~/dotfiles
 cd ~/dotfiles
-./scripts/install-packages.sh --desktop
-./scripts/install-configs.sh
+./install.sh
 ```
 
-`--desktop` installs only missing i3/X11, LightDM login screen, audio, network, font, and shell dependencies; it does not upgrade already-installed packages or unrelated applications. The shell profile includes Zsh, Oh My Zsh, the VIA theme, Eza, Yazi, and the configured Zsh plugins. The package script uses pacman for Arch packages and yay for AUR packages. It can bootstrap yay when needed. If pacman reports a version conflict or stale package database, update Arch separately with `sudo pacman -Syu`, then rerun the installer.
+Выберите установку или сначала посмотрите план. Существующие файлы сохраняются рядом с исходным путём как `*.pre-dotfiles.<дата-время>`, а затем заменяются символическими ссылками на файлы репозитория. Шрифты копируются в `~/.local/share/fonts`. Установщик не устанавливает пакеты и не меняет `/etc`.
 
-For a new system, use `--desktop`. It includes only packages used by this setup; unused utilities, a second file manager, and optional language font packs are excluded. The broader `--all` profile is a snapshot from this machine and includes unrelated applications such as Steam and Telegram. Use it only if you intentionally want that full list, after reviewing `packages/arch-explicit.txt` and `packages/aur-explicit.txt`.
-
-The config installer backs up conflicting files with a timestamped `.pre-dotfiles.*` suffix before linking files from this repo. It installs the included fonts and does not modify `/etc`.
-
-### LightDM login screen
-
-LightDM GTK greeter uses the matching Dracula GTK theme, a solid `#1a202b` background, centered login form, and a compact clock/control panel. After installing the packages, apply its system-wide config with:
+Предварительный просмотр из терминала:
 
 ```bash
-./scripts/apply-lightdm-greeter.sh
+./install.sh --dry-run
 ```
 
-The script saves the previous greeter config beside itself before installing the new one. It is the only provided script that writes under `/etc`; the regular config linker leaves system files alone. The appearance takes effect at the next login; no reboot is needed.
+Для полноценной работы конфигов нужны i3/X11, Polybar, Alacritty и другие указанные в настройках приложения. Устанавливайте нужные программы штатным менеджером пакетов вашей системы.
 
-## 🛠 Machine-specific settings
+## Что настроено
 
-- The current monitor is `HDMI-A-0`, set to 1920×1080 at 165 Hz in i3 and Polybar.
-- The Polybar Wi-Fi label reads the active SSID from NetworkManager; Wi-Fi management opens NetworkManager's connection editor.
-- i3 applies `~/Wallpapers/default1.png` with `feh` at startup.
-- Polybar gives each workspace number its own color and displays the date directly in the main bar.
-- The setup expects an X11 session, NetworkManager, PipeWire/WirePlumber and the listed fonts.
+- i3: сочетания клавиш, раскладка US/RU, автоматическая ориентация тайлов и запуск приложений.
+- Polybar: рабочие столы, заголовок окна, звук, сеть и дата.
+- Rofi, Picom, Alacritty, Yazi, GTK и Fastfetch.
+- Zsh с Oh My Zsh и Powerlevel10k.
+- X11: `.xinitrc` и `.Xresources`.
 
-## 📁 Repository map
+Главный модификатор i3 — `Super`. Конфиг использует выход `HDMI-A-0` в режиме 1920×1080, 165 Гц, и обои `~/Wallpapers/default1.png`; при переносе на другую машину проверьте эти значения.
 
-```text
-├── .config/          Active application and desktop configs
-├── .local/share/     Included font files and licenses
-├── inventory/        Desktop and package notes
-├── packages/         Desktop profile and full package manifests
-├── screenshots/      Desktop previews
-├── scripts/          Package, config and manifest helpers
-└── system/           Optional system-wide LightDM greeter config
-```
+Необязательная конфигурация LightDM находится в `system/`. Для её применения вручную запустите `scripts/apply-lightdm-greeter.sh`: скрипт запросит `sudo`, сохранит прежний файл и изменит только `/etc/lightdm/lightdm-gtk-greeter.conf`.
 
-## 🔄 Refresh package manifests
-
-After changing installed software on this machine, run:
-
-```bash
-./scripts/capture-package-manifest.sh
-```
-
-This only updates package list files in the repository; it does not install or remove software.
-
-## License
-
-Configuration files are shared for personal use and adaptation. Bundled font files remain under their upstream license; see `.local/share/fonts/LICENSE` and `README.md` in that directory.
+Шрифты Adwaita Mono Nerd Font распространяются по SIL Open Font License; текст лицензии включён в `.local/share/fonts/LICENSE`.
