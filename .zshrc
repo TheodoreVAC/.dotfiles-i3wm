@@ -148,6 +148,7 @@ alias ll='eza -lah --icons'
 alias la='eza -a --icons'
 alias l='eza -lah --icons'
 alias lt='eza --tree --icons'
+export EZA_COLORS='di=38;2;137;180;250:ln=38;2;111;119;133:ex=38;2;166;227;161:fi=38;2;216;222;233:pi=38;2;250;179;135:so=38;2;203;166;247:bd=38;2;250;179;135:cd=38;2;250;179;135:da=38;2;111;119;133:uu=38;2;216;222;233:gu=38;2;111;119;133:xx=38;2;111;119;133'
 export PATH="$HOME/.local/bin:$PATH"
 
 # Cursor: blinking vertical bar

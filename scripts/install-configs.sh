@@ -30,6 +30,7 @@ while IFS= read -r relative; do
     [[ -n "$relative" ]] && link_file "$relative"
 done <<'FILES'
 .xinitrc
+.zshrc
 .config/alacritty/alacritty.toml
 .config/alacritty/config.toml
 .config/fastfetch/config.jsonc
@@ -41,6 +42,7 @@ done <<'FILES'
 .config/polybar/launch.sh
 .config/polybar/wifi-status.sh
 .config/rofi/config.rasi
+.config/yazi/theme.toml
 FILES
 
 font_dir="$repo_dir/.local/share/fonts"
