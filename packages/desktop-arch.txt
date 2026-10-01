@@ -46,6 +46,7 @@ xorg-server
 xorg-setxkbmap
 xorg-xinit
 xorg-xrandr
+xorg-xset
 xss-lock
 yazi
 zsh

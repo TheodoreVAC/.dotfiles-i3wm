@@ -27,6 +27,9 @@ mouse_warping none
 exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
+# Не гасить экран и не включать заставку при бездействии.
+exec --no-startup-id xset s off -dpms
+
 # Связка xss-lock, nm-applet и pactl является популярным вариантом,
 # поэтому она приведена здесь в качестве примера.
 # При необходимости настройте её под себя.
