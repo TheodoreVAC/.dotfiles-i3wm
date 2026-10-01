@@ -27,7 +27,7 @@ Personal desktop setup focused on a dark interface, keyboard driven window manag
 | **i3status** | Retained status-line configuration |
 | **Fonts** | Adwaita Mono Nerd Font plus Nerd Font symbols |
 
-The repository also contains the Xinit entry point, GTK appearance settings, Fastfetch config, package manifests, and scripts to install packages and link the dotfiles.
+The repository also contains the Xinit entry point, GTK appearance settings, Fastfetch config, a themed Zsh setup, package manifests, and scripts to install packages and link the dotfiles.
 
 ## ⌨️ Key bindings
 
@@ -57,7 +57,7 @@ cd ~/dotfiles
 ./scripts/install-configs.sh
 ```
 
-`--desktop` installs the i3/X11, LightDM login screen, audio, network and font dependencies. The package script uses pacman for Arch packages and yay for AUR packages. It can bootstrap yay when needed.
+`--desktop` installs the i3/X11, LightDM login screen, audio, network, font, and shell dependencies. The shell profile includes Zsh, Oh My Zsh, the VIA theme, Eza, Yazi, and the configured Zsh plugins. The package script uses pacman for Arch packages and yay for AUR packages. It can bootstrap yay when needed.
 
 To install the broader package set captured from this machine, use `./scripts/install-packages.sh --all` after reviewing `packages/arch-explicit.txt` and `packages/aur-explicit.txt`. This includes unrelated desktop applications and hardware-specific system packages. Dependencies are resolved by pacman/yay; debug split packages and retired panel/tray packages are omitted.
 

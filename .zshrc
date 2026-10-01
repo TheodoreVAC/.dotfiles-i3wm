@@ -9,13 +9,16 @@ fi
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
 # Path to your Oh My Zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
-
+if [[ -r "$HOME/.oh-my-zsh/oh-my-zsh.sh" ]]; then
+  export ZSH="$HOME/.oh-my-zsh"
+else
+  export ZSH="/usr/share/oh-my-zsh"
+fi
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time Oh My Zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="oh-my-via/my-via"
+ZSH_THEME="oh-my-via/via"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -105,11 +108,15 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#3b5f8a'
 
 plugins=(
     git
-    zsh-autosuggestions
-    zsh-syntax-highlighting
 )
 
-source $ZSH/oh-my-zsh.sh
+if [[ -r "$ZSH/oh-my-zsh.sh" ]]; then
+    source "$ZSH/oh-my-zsh.sh"
+fi
+
+# Arch packages install these plugins outside Oh My Zsh's bundled plugin tree.
+[[ ! -r /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]] || \
+    source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # User configuration
 
@@ -154,3 +161,7 @@ export PATH="$HOME/.local/bin:$PATH"
 # Cursor: blinking vertical bar
 printf '\e[5 q'
 export PATH="$PATH:$HOME/go/bin"
+
+# Load syntax highlighting last so it can observe aliases and other commands.
+[[ ! -r /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] || \
+    source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

@@ -4,6 +4,7 @@ brightnessctl
 dart-sass
 dex
 dolphin
+eza
 feh
 gvfs
 gvfs-mtp
@@ -11,9 +12,9 @@ i3-wm
 i3lock
 i3status
 jq
+libpulse
 lightdm
 lightdm-gtk-greeter
-libpulse
 maim
 network-manager-applet
 networkmanager
@@ -21,12 +22,12 @@ noto-fonts
 noto-fonts-cjk
 noto-fonts-emoji
 papirus-icon-theme
+pavucontrol
 picom
 pipewire
 pipewire-alsa
 pipewire-pulse
 polkit-gnome
-pavucontrol
 polybar
 redshift
 rofi
@@ -46,3 +47,7 @@ xorg-setxkbmap
 xorg-xinit
 xorg-xrandr
 xss-lock
+yazi
+zsh
+zsh-autosuggestions
+zsh-syntax-highlighting

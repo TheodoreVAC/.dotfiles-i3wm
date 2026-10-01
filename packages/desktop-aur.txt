@@ -1,2 +1,4 @@
 dracula-gtk-theme
+oh-my-zsh-git
+oh-my-zsh-theme-via
 yay

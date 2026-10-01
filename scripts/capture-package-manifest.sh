@@ -14,8 +14,10 @@ pacman -Qqm | sort -u > "$foreign_explicit"
 
 # Keep a review list and installable manifests without retired packages or debug outputs.
 cp "$package_dir/explicit-installed.txt" "$package_dir/explicit-installable.txt"
-grep -Fxf "$foreign_explicit" "$package_dir/explicit-installable.txt" | sort -u > "$package_dir/aur-explicit.txt"
-grep -Fxv -f "$package_dir/aur-explicit.txt" "$package_dir/explicit-installable.txt" | sort -u > "$package_dir/arch-explicit.txt"
+awk 'FILENAME == ARGV[1] { foreign[$0] = 1; next } $0 in foreign' \
+    "$foreign_explicit" "$package_dir/explicit-installable.txt" | sort -u > "$package_dir/aur-explicit.txt"
+awk 'FILENAME == ARGV[1] { aur[$0] = 1; next } !($0 in aur)' \
+    "$package_dir/aur-explicit.txt" "$package_dir/explicit-installable.txt" | sort -u > "$package_dir/arch-explicit.txt"
 
 # yay may come from a custom repo and therefore not appear in pacman -Qm.
 if grep -Fxq yay "$package_dir/explicit-installable.txt"; then

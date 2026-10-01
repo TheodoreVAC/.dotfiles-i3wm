@@ -31,6 +31,7 @@ while IFS= read -r relative; do
 done <<'FILES'
 .xinitrc
 .zshrc
+.p10k.zsh
 .config/alacritty/alacritty.toml
 .config/alacritty/config.toml
 .config/fastfetch/config.jsonc
