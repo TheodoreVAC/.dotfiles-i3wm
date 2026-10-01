@@ -30,12 +30,14 @@ while IFS= read -r relative; do
     [[ -n "$relative" ]] && link_file "$relative"
 done <<'FILES'
 .xinitrc
+.Xresources
 .zshrc
 .p10k.zsh
 .config/alacritty/alacritty.toml
 .config/alacritty/config.toml
 .config/fastfetch/config.jsonc
 .config/gtk-3.0/settings.ini
+.config/gtk-4.0/settings.ini
 .config/i3/config
 .config/i3status/config
 .config/picom/picom.conf
