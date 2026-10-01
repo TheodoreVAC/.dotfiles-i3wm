@@ -27,8 +27,8 @@ mouse_warping none
 exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
-# Автоматически раскладывать окна; скрипт защищает от дублирующих процессов.
-exec_always --no-startup-id ~/.config/i3/autotiling.sh
+# Автоматически менять направление разбиения окон по их форме.
+exec_always --no-startup-id systemctl --user restart autotiling.service
 
 # Применять тему курсора X11 при запуске i3 (включая вход через LightDM).
 exec --no-startup-id xrdb -merge "$HOME/.Xresources"

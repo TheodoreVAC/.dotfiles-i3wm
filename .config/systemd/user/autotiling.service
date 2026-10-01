@@ -1,0 +1,11 @@
+[Unit]
+Description=Automatic i3 window tiling orientation
+After=graphical-session.target
+
+[Service]
+ExecStart=/usr/bin/autotiling
+Restart=on-failure
+RestartSec=2
+
+[Install]
+WantedBy=default.target
