@@ -11,3 +11,7 @@ style = "Bold"
 [font.italic]
 family = "DejaVu Sans Mono"
 style = "Italic"
+
+[colors.primary]
+background = "#111720"
+foreground = "#D8DEE9"
