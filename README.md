@@ -57,7 +57,7 @@ cd ~/dotfiles
 ./scripts/install-configs.sh
 ```
 
-`--desktop` synchronizes and fully upgrades the Arch system while installing the i3/X11, LightDM login screen, audio, network, font, and shell dependencies. A full upgrade avoids unsupported partial upgrades and version conflicts on Arch. The shell profile includes Zsh, Oh My Zsh, the VIA theme, Eza, Yazi, and the configured Zsh plugins. The package script uses pacman for Arch packages and yay for AUR packages. It can bootstrap yay when needed.
+`--desktop` installs only missing i3/X11, LightDM login screen, audio, network, font, and shell dependencies; it does not upgrade already-installed packages or unrelated applications. The shell profile includes Zsh, Oh My Zsh, the VIA theme, Eza, Yazi, and the configured Zsh plugins. The package script uses pacman for Arch packages and yay for AUR packages. It can bootstrap yay when needed. If pacman reports a version conflict or stale package database, update Arch separately with `sudo pacman -Syu`, then rerun the installer.
 
 To install the broader package set captured from this machine, use `./scripts/install-packages.sh --all` after reviewing `packages/arch-explicit.txt` and `packages/aur-explicit.txt`. This includes unrelated desktop applications and hardware-specific system packages. Dependencies are resolved by pacman/yay; debug split packages and retired panel/tray packages are omitted.
 

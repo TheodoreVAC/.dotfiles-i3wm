@@ -28,13 +28,25 @@ fi
 mapfile -t arch_packages < <(grep -Ev '^[[:space:]]*(#|$)' "$arch_file")
 mapfile -t aur_packages < <(grep -Ev '^[[:space:]]*(#|$)' "$aur_file")
 
-if ((${#arch_packages[@]})); then
-    # Arch Linux does not support partial upgrades. Sync and upgrade the full
-    # system in the same transaction as the requested packages.
-    sudo pacman -Syu --needed "${arch_packages[@]}"
+is_installed() {
+    pacman -Qq -- "$1" >/dev/null 2>&1
+}
+
+missing_arch_packages=()
+for package in "${arch_packages[@]}"; do
+    is_installed "$package" || missing_arch_packages+=("$package")
+done
+
+if ((${#missing_arch_packages[@]})); then
+    sudo pacman -S --needed "${missing_arch_packages[@]}"
 fi
 
-if ! command -v yay >/dev/null 2>&1; then
+missing_aur_packages=()
+for package in "${aur_packages[@]}"; do
+    is_installed "$package" || missing_aur_packages+=("$package")
+done
+
+if ((${#missing_aur_packages[@]})) && ! command -v yay >/dev/null 2>&1; then
     printf 'yay is not installed; bootstrapping it from the AUR.\n'
     sudo pacman -S --needed git base-devel
     build_dir="$(mktemp -d)"
@@ -43,6 +55,6 @@ if ! command -v yay >/dev/null 2>&1; then
     (cd "$build_dir/yay" && makepkg -si --needed)
 fi
 
-if ((${#aur_packages[@]})); then
-    yay -S --needed "${aur_packages[@]}"
+if ((${#missing_aur_packages[@]})); then
+    yay -S --needed "${missing_aur_packages[@]}"
 fi
