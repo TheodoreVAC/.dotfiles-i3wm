@@ -42,6 +42,7 @@ done <<'FILES'
 .config/i3status/config
 .config/picom/picom.conf
 .config/polybar/config.ini
+.config/polybar/i3-mode.sh
 .config/polybar/launch.sh
 .config/polybar/wifi-status.sh
 .config/rofi/config.rasi
