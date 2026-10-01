@@ -27,6 +27,9 @@ mouse_warping none
 exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
+# Автоматически менять направление разбиения окон для компактной раскладки.
+exec --no-startup-id autotiling --limit 2
+
 # Применять тему курсора X11 при запуске i3 (включая вход через LightDM).
 exec --no-startup-id xrdb -merge "$HOME/.Xresources"
 
