@@ -1,17 +1,11 @@
 alacritty
-base-devel
-brightnessctl
-dart-sass
 dex
-dolphin
 eza
 feh
 gvfs
-gvfs-mtp
 i3-wm
 i3lock
 i3status
-jq
 libpulse
 lightdm
 lightdm-gtk-greeter
@@ -19,8 +13,6 @@ maim
 network-manager-applet
 networkmanager
 noto-fonts
-noto-fonts-cjk
-noto-fonts-emoji
 papirus-icon-theme
 pavucontrol
 picom

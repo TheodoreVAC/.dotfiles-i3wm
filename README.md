@@ -59,7 +59,7 @@ cd ~/dotfiles
 
 `--desktop` installs only missing i3/X11, LightDM login screen, audio, network, font, and shell dependencies; it does not upgrade already-installed packages or unrelated applications. The shell profile includes Zsh, Oh My Zsh, the VIA theme, Eza, Yazi, and the configured Zsh plugins. The package script uses pacman for Arch packages and yay for AUR packages. It can bootstrap yay when needed. If pacman reports a version conflict or stale package database, update Arch separately with `sudo pacman -Syu`, then rerun the installer.
 
-To install the broader package set captured from this machine, use `./scripts/install-packages.sh --all` after reviewing `packages/arch-explicit.txt` and `packages/aur-explicit.txt`. This includes unrelated desktop applications and hardware-specific system packages. Dependencies are resolved by pacman/yay; debug split packages and retired panel/tray packages are omitted.
+For a new system, use `--desktop`. It includes only packages used by this setup; unused utilities, a second file manager, and optional language font packs are excluded. The broader `--all` profile is a snapshot from this machine and includes unrelated applications such as Steam and Telegram. Use it only if you intentionally want that full list, after reviewing `packages/arch-explicit.txt` and `packages/aur-explicit.txt`.
 
 The config installer backs up conflicting files with a timestamped `.pre-dotfiles.*` suffix before linking files from this repo. It installs the included fonts and does not modify `/etc`.
 
