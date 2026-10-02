@@ -126,6 +126,7 @@ bindsym $mod+e layout toggle split
 
 # Запуск файлового менеджера Thunar
 bindsym $mod+t exec thunar
+bindsym $mod+Shift+b exec --no-startup-id ~/.config/i3/wallpaper-picker.sh
 
 
 # Переключение между тайловым и плавающим режимом
@@ -322,6 +323,6 @@ client.urgent           #F38BA8 #F38BA8 #FFFFFF #F38BA8 #F38BA8
 # picom
 # Запуск композитора picom с указанным конфигурационным файлом
 exec_always --no-startup-id picom --config ~/.config/picom/picom.conf
-exec_always --no-startup-id feh --bg-fill ~/Wallpapers/default1.png
+exec_always --no-startup-id ~/.config/i3/wallpaper-picker.sh --restore
 
 # exec_always --no-startup-id feh --bg-fill ~/Wallpapers/pollos-photoaidcom-darken.png

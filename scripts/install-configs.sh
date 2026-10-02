@@ -50,6 +50,7 @@ done <<'FILES'
 .config/gtk-3.0/settings.ini
 .config/gtk-4.0/settings.ini
 .config/i3/config
+.config/i3/wallpaper-picker.sh
 .config/systemd/user/autotiling.service
 .config/i3status/config
 .config/picom/picom.conf
