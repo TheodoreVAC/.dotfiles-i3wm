@@ -126,6 +126,7 @@ bindsym $mod+e layout toggle split
 
 # Запуск файлового менеджера Thunar
 bindsym $mod+t exec thunar
+for_window [title="^Wallpaper picker$"] floating enable, border pixel 0
 bindsym $mod+Shift+b exec --no-startup-id ~/.config/i3/wallpaper-picker.sh
 
 
