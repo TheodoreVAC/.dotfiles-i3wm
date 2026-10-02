@@ -8,7 +8,7 @@ if ! command -v dunstctl >/dev/null 2>&1; then
 fi
 
 if [[ "$(dunstctl is-paused 2>/dev/null)" == "true" ]]; then
-    printf '%%{F#FAB387}󰂛 DND%%{F-}\n'
+    printf '%%{F#C2A67C}󰂛 DND%%{F-}\n'
     exit 0
 fi
 
