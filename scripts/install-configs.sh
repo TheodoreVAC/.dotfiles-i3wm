@@ -59,6 +59,7 @@ done <<'FILES'
 .config/polybar/launch.sh
 .config/polybar/wifi-status.sh
 .config/rofi/config.rasi
+.config/rofi/wallpaper-picker.rasi
 .config/yazi/theme.toml
 FILES
 
