@@ -1,8 +1,10 @@
 configuration {
     show-icons: true;
     font: "AdwaitaMono Nerd Font Bold 12";
-    location: 0;
+    location: 3;
     hide-scrollbar: false;
+    xoffset: -14;
+    yoffset: 46;
 }
 
 * {
