@@ -11,79 +11,91 @@ configuration {
 }
 
 window {
-    width: 42%;
-    height: 68%;
+    width: 58%;
     border: 0px;
-    border-radius: 12px;
+    border-radius: 16px;
     padding: 0px;
     background-color: #1A202B;
 }
 
 mainbox {
     children: [inputbar, listview];
-    spacing: 8px;
-    padding: 12px;
+    spacing: 12px;
+    padding: 16px;
     background-color: #1A202B;
 }
 
 inputbar {
     children: [prompt, entry];
-    spacing: 8px;
-    padding: 2px;
+    spacing: 10px;
+    padding: 4px;
     background-color: #1A202B;
 }
 
 prompt {
-    padding: 6px 10px;
-    border-radius: 6px;
+    padding: 8px 14px;
+    border-radius: 8px;
     background-color: #89B4FA;
     text-color: #1A202B;
 }
 
 entry {
-    padding: 6px 10px;
+    padding: 8px 14px;
+    border-radius: 8px;
     background-color: #202936;
     text-color: #D8DEE9;
     placeholder: "Найти обои";
 }
 
 listview {
-    columns: 1;
-    lines: 7;
+    columns: 3;
+    lines: 3;
     layout: vertical;
-    flow: vertical;
+    flow: horizontal;
     fixed-columns: true;
     fixed-height: false;
     dynamic: true;
-    spacing: 3px;
+    spacing: 12px;
+    padding: 4px;
     scrollbar: true;
     background-color: #1A202B;
 }
 
-element {
-    orientation: horizontal;
-    spacing: 10px;
-    padding: 5px 8px;
+scrollbar {
+    width: 4px;
+    padding: 0px;
     border: 0px;
-    border-radius: 7px;
+    handle-width: 4px;
+    handle-color: #303B4D;
+    background-color: transparent;
+}
+
+element {
+    orientation: vertical;
+    spacing: 6px;
+    padding: 8px;
+    border: 2px;
+    border-color: transparent;
+    border-radius: 12px;
     background-color: #202936;
     text-color: #D8DEE9;
 }
 
 element-icon {
-    size: 88px;
+    size: 230px;
+    horizontal-align: 0.5;
     background-color: transparent;
 }
 
 element-text {
+    horizontal-align: 0.5;
     vertical-align: 0.5;
     background-color: transparent;
     text-color: inherit;
 }
 
 element selected {
-    border: 0px;
-    border-radius: 7px;
+    border-color: #89B4FA;
     background-color: #303B4D;
     text-color: #89B4FA;
 }
