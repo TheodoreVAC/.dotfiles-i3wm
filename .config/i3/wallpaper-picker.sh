@@ -39,7 +39,7 @@ selection=$(
     for image in "${wallpapers[@]}"; do
         printf '%s\0icon\x1f%s\n' "$(basename -- "$image")" "$image"
     done | rofi -dmenu -i -show-icons -p 'Обои' \
-        -theme-str 'window { width: 95%; height: 88%; } listview { columns: 3; lines: 2; fixed-columns: true; } element { orientation: vertical; spacing: 8px; padding: 10px; } element-icon { size: 380px; } element-text { horizontal-align: 0.5; }'
+        -theme-str 'window { width: 85%; height: 70%; } listview { columns: 3; lines: 2; fixed-columns: true; } element { orientation: vertical; spacing: 8px; padding: 10px; border: 0px; border-color: transparent; } element-icon { size: 380px; border: 0px; border-color: transparent; } element selected, element selected.normal { border: 0px; border-color: transparent; } element-text { horizontal-align: 0.5; }'
 ) || exit 0
 
 [[ -n "$selection" ]] || exit 0
