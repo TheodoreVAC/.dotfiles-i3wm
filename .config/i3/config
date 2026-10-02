@@ -53,10 +53,10 @@ exec --no-startup-id nm-applet
 # Используем pactl для регулировки громкости в PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
 
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status && ~/.config/dunst/volume-notify.sh volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status && ~/.config/dunst/volume-notify.sh volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status && ~/.config/dunst/volume-notify.sh volume
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status && ~/.config/dunst/volume-notify.sh mic
 
 
 # Использовать Mouse+$mod для перемещения плавающих окон
@@ -268,6 +268,22 @@ bindsym $mod+Mod1+Left workspace prev
 bindsym $mod+Mod1+Right workspace next
 
 # ==========================================================
+# УВЕДОМЛЕНИЯ (DUNST)
+# ==========================================================
+
+# D-Bus сам поднимет dunst, но на старте сессии запускаем явно.
+exec --no-startup-id sh -c 'pgrep -x dunst >/dev/null || dunst'
+
+# Super+N — история уведомлений в Rofi
+bindsym $mod+n exec --no-startup-id ~/.config/dunst/history.sh
+
+# Super+Shift+N — очистить историю
+bindsym $mod+Shift+n exec --no-startup-id dunstctl history-clear
+
+# Super+Ctrl+N — режим «Не беспокоить»
+bindsym $mod+Ctrl+n exec --no-startup-id ~/.config/dunst/toggle-dnd.sh
+
+# ==========================================================
 # POLYBAR
 # ==========================================================
 
@@ -280,10 +296,10 @@ bindsym $mod+F12 exec --no-startup-id polybar-msg action "#xwindow.module_toggle
 # US <-> RU с помощью Alt+Shift
 exec_always --no-startup-id setxkbmap -layout us,ru -option grp:alt_shift_toggle
 
-# Управление громкостью
-bindsym F2 exec --no-startup-id wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
-bindsym F3 exec --no-startup-id wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
-bindsym F4 exec --no-startup-id wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+# Управление громкостью (с уведомлением-полосой от dunst)
+bindsym F2 exec --no-startup-id wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- && ~/.config/dunst/volume-notify.sh volume
+bindsym F3 exec --no-startup-id wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ && ~/.config/dunst/volume-notify.sh volume
+bindsym F4 exec --no-startup-id wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && ~/.config/dunst/volume-notify.sh volume
 bindsym $mod+F10 exec --no-startup-id pavucontrol
 bindsym $mod+F9 exec --no-startup-id nm-connection-editor
 
@@ -293,11 +309,11 @@ exec_always --no-startup-id xrandr --output HDMI-A-0 --mode 1920x1080 --rate 165
 
 # Скриншоты (maim + slop + xclip)
 
-# Print — весь экран: сохранить в Pictures и скопировать в буфер.
-bindsym Print exec --no-startup-id maim | tee ~/Pictures/$(date +%F_%H-%M-%S).png | xclip -selection clipboard -t image/png
+# Print — весь экран: сохранить в Pictures, скопировать в буфер и уведомить.
+bindsym Print exec --no-startup-id ~/.config/i3/screenshot.sh
 
-# Super+Print — выделенная область: сохранить в Pictures и скопировать в буфер.
-bindsym $mod+Print exec --no-startup-id maim -s | tee ~/Pictures/$(date +%F_%H-%M-%S).png | xclip -selection clipboard -t image/png
+# Super+Print — выделенная область: сохранить в Pictures, скопировать и уведомить.
+bindsym $mod+Print exec --no-startup-id ~/.config/i3/screenshot.sh area
 
 # Убираем заголовки и рамки всех окон
 # в обычном (тайловом) режиме

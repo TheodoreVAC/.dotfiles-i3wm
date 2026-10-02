@@ -89,3 +89,10 @@ selection=$(
 [[ -n "${wallpaper_by_name[$selection]:-}" ]] || exit 1
 
 feh --bg-fill "${wallpaper_by_name[$selection]}"
+
+thumb="$thumb_dir/$(basename -- "$selection")"
+[[ -f "$thumb" ]] || thumb="${wallpaper_by_name[$selection]}"
+
+dunstify -a "Обои" -i "$thumb" -t 3000 \
+    -h string:x-dunst-stack-tag:wallpaper \
+    "Обои изменены" "$selection"
