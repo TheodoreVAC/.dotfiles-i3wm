@@ -11,7 +11,7 @@ configuration {
 }
 
 window {
-    width: 58%;
+    width: 876px;
     border: 0px;
     border-radius: 16px;
     padding: 0px;
@@ -55,7 +55,7 @@ listview {
     fixed-columns: true;
     fixed-height: false;
     dynamic: true;
-    spacing: 12px;
+    spacing: 4px;
     padding: 4px;
     scrollbar: true;
     background-color: #1A202B;
@@ -72,8 +72,8 @@ scrollbar {
 
 element {
     orientation: vertical;
-    spacing: 6px;
-    padding: 8px;
+    spacing: 3px;
+    padding: 0px;
     border: 2px;
     border-color: transparent;
     border-radius: 12px;
@@ -82,7 +82,7 @@ element {
 }
 
 element-icon {
-    size: 230px;
+    size: 272px;
     horizontal-align: 0.5;
     background-color: transparent;
 }

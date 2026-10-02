@@ -35,9 +35,51 @@ if ((${#wallpapers[@]} == 0)); then
     exit 1
 fi
 
+thumb_dir="$HOME/.cache/wallpaper-thumbs"
+mkdir -p "$thumb_dir"
+
+if command -v python3 >/dev/null 2>&1; then
+    python3 - "$wallpaper_dir" "$thumb_dir" <<'PY' 2>/dev/null || true
+import os
+import sys
+
+from PIL import Image
+
+src_dir, dst_dir = sys.argv[1], sys.argv[2]
+exts = {".png", ".jpg", ".jpeg", ".webp", ".bmp", ".gif"}
+size = 512
+
+for name in sorted(os.listdir(src_dir)):
+    if os.path.splitext(name)[1].lower() not in exts:
+        continue
+    src = os.path.join(src_dir, name)
+    if not os.path.isfile(src):
+        continue
+    dst = os.path.join(dst_dir, name)
+    try:
+        if os.path.exists(dst) and os.path.getmtime(dst) >= os.path.getmtime(src):
+            continue
+        with Image.open(src) as im:
+            im.load()
+            image = im.convert("RGB")
+        width, height = image.size
+        side = min(width, height)
+        left = (width - side) // 2
+        top = (height - side) // 2
+        image = image.crop((left, top, left + side, top + side))
+        image = image.resize((size, size), Image.LANCZOS)
+        image.save(dst)
+    except Exception:
+        if os.path.exists(dst):
+            os.remove(dst)
+PY
+fi
+
 selection=$(
     for image in "${wallpapers[@]}"; do
-        printf '%s\0icon\x1f%s\n' "$(basename -- "$image")" "$image"
+        thumb="$thumb_dir/$(basename -- "$image")"
+        [[ -f "$thumb" ]] || thumb="$image"
+        printf '%s\0icon\x1f%s\n' "$(basename -- "$image")" "$thumb"
     done | rofi -dmenu -i -show-icons -p 'Обои' \
         -window-title 'Wallpaper Picker' \
         -theme "$HOME/.config/rofi/wallpaper-picker.rasi"
