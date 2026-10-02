@@ -11,8 +11,8 @@ configuration {
 }
 
 window {
-    width: 86%;
-    height: 72%;
+    width: 78%;
+    height: 80%;
     border: 0px;
     border-radius: 14px;
     padding: 0px;
@@ -48,7 +48,7 @@ entry {
 }
 
 listview {
-    columns: 3;
+    columns: 1;
     lines: 2;
     flow: vertical;
     fixed-columns: true;
@@ -60,9 +60,9 @@ listview {
 }
 
 element {
-    orientation: vertical;
-    spacing: 8px;
-    padding: 10px;
+    orientation: horizontal;
+    spacing: 18px;
+    padding: 12px;
     border: 0px;
     border-radius: 8px;
     background-color: #202936;
@@ -70,13 +70,13 @@ element {
 }
 
 element-icon {
-    size: 360px;
-    horizontal-align: 0.5;
+    size: 340px;
+    vertical-align: 0.5;
     background-color: transparent;
 }
 
 element-text {
-    horizontal-align: 0.5;
+    horizontal-align: 0.0;
     vertical-align: 0.5;
     background-color: transparent;
     text-color: inherit;
