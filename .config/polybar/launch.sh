@@ -18,8 +18,8 @@ for attempt in {1..20}; do
 done
 
 # Keep the visible bar's spacing in sync after i3 starts or reloads.
-i3-msg -q gaps inner all set 2 >/dev/null 2>&1 || true
-i3-msg -q gaps outer all set 2 >/dev/null 2>&1 || true
+i3-msg -q gaps inner all set 4 >/dev/null 2>&1 || true
+i3-msg -q gaps outer all set 4 >/dev/null 2>&1 || true
 i3-msg -q gaps top all set 42 >/dev/null 2>&1 || true
 
 # The bar is visible again, so drop the hidden-state flag used by toggle.sh.

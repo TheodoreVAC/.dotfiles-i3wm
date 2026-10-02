@@ -1,16 +1,17 @@
 #!/usr/bin/env bash
-# Переключение Polybar: скрыть бар и отдать ему место окну
-# (окно растягивается на весь экран), либо вернуть бар обратно.
+# Переключение Polybar: скрыть бар и отдать его верхний отступ окну
+# (окно растягивается вверх к краю экрана), либо вернуть бар обратно.
 set -u
 
-# Значения из ~/.config/i3/config: gaps inner 2, gaps outer 2, gaps top 42.
-# При скрытом баре все отступы обнуляются, чтобы окно легло ровно на весь экран.
+# Значения из ~/.config/i3/config: gaps inner 4, gaps outer 4, gaps top 42.
+# При скрытом баре верхний отступ сжимается до 4 (как у остальных краёв),
+# inner/outer остаются как в конфиге — по краям остаются отступы.
 GAP_TOP_SHOWN=42
-GAP_TOP_HIDDEN=0
-GAP_OUTER_SHOWN=2
-GAP_OUTER_HIDDEN=0
-GAP_INNER_SHOWN=2
-GAP_INNER_HIDDEN=0
+GAP_TOP_HIDDEN=4
+GAP_OUTER_SHOWN=4
+GAP_OUTER_HIDDEN=4
+GAP_INNER_SHOWN=4
+GAP_INNER_HIDDEN=4
 
 STATE_FILE="${XDG_RUNTIME_DIR:-/tmp}/polybar-hidden-${UID}"
 

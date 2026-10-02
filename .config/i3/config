@@ -326,8 +326,8 @@ default_border pixel 3
 default_floating_border pixel 2
 
 # Отступы между окнами
-gaps inner 2
-gaps outer 2
+gaps inner 4
+gaps outer 4
 gaps top 42
 
 # Цвета окон
