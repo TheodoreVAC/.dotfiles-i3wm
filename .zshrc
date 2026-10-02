@@ -18,7 +18,7 @@ fi
 # load a random theme each time Oh My Zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="oh-my-via/via"
+ZSH_THEME="oh-my-via/my-via"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -110,13 +110,17 @@ plugins=(
     git
 )
 
+# Системные пакеты держат плагины вне дерева Oh My Zsh; если их нет,
+# используем копии, идущие в комплекте с Oh My Zsh.
+_zsh_autosuggestions=/usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+_zsh_highlighting=/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+[[ -r "$_zsh_autosuggestions" ]] || plugins+=(zsh-autosuggestions)
+
 if [[ -r "$ZSH/oh-my-zsh.sh" ]]; then
     source "$ZSH/oh-my-zsh.sh"
 fi
 
-# Arch packages install these plugins outside Oh My Zsh's bundled plugin tree.
-[[ ! -r /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]] || \
-    source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+[[ ! -r "$_zsh_autosuggestions" ]] || source "$_zsh_autosuggestions"
 
 # User configuration
 
@@ -163,5 +167,8 @@ printf '\e[5 q'
 export PATH="$PATH:$HOME/go/bin"
 
 # Load syntax highlighting last so it can observe aliases and other commands.
-[[ ! -r /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] || \
-    source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+if [[ -r "$_zsh_highlighting" ]]; then
+    source "$_zsh_highlighting"
+elif [[ -r "$ZSH/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh" ]]; then
+    source "$ZSH/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh"
+fi

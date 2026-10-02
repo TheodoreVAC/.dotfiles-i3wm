@@ -46,10 +46,16 @@ done <<'FILES'
 .p10k.zsh
 .config/alacritty/alacritty.toml
 .config/alacritty/config.toml
+.config/dunst/dunstrc
+.config/dunst/history.sh
+.config/dunst/status.sh
+.config/dunst/toggle-dnd.sh
+.config/dunst/volume-notify.sh
 .config/fastfetch/config.jsonc
 .config/gtk-3.0/settings.ini
 .config/gtk-4.0/settings.ini
 .config/i3/config
+.config/i3/screenshot.sh
 .config/i3/wallpaper-picker.sh
 .config/systemd/user/autotiling.service
 .config/i3status/config
@@ -59,6 +65,7 @@ done <<'FILES'
 .config/polybar/launch.sh
 .config/polybar/wifi-status.sh
 .config/rofi/config.rasi
+.config/rofi/notifications.rasi
 .config/rofi/wallpaper-picker.rasi
 .config/yazi/theme.toml
 FILES
@@ -85,4 +92,8 @@ if ((dry_run)); then
     printf '\nPreview complete; no files were changed.\n'
 else
     printf '\nConfigs are linked. Existing files were moved to timestamped .pre-dotfiles backups.\n'
+fi
+
+if ! "$repo_dir/scripts/install-deps.sh" --check >/dev/null 2>&1; then
+    printf 'Some packages are still missing. Run: %s/scripts/install-deps.sh\n' "$repo_dir"
 fi
