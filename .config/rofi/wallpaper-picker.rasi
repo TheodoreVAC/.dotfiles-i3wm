@@ -1,8 +1,8 @@
 configuration {
     show-icons: true;
-    font: "AdwaitaMono Nerd Font Bold 14";
+    font: "AdwaitaMono Nerd Font Bold 12";
     location: 0;
-    hide-scrollbar: true;
+    hide-scrollbar: false;
 }
 
 * {
@@ -11,37 +11,37 @@ configuration {
 }
 
 window {
-    width: 78%;
-    height: 80%;
+    width: 42%;
+    height: 68%;
     border: 0px;
-    border-radius: 14px;
+    border-radius: 12px;
     padding: 0px;
     background-color: #1A202B;
 }
 
 mainbox {
     children: [inputbar, listview];
-    spacing: 14px;
-    padding: 20px;
+    spacing: 8px;
+    padding: 12px;
     background-color: #1A202B;
 }
 
 inputbar {
     children: [prompt, entry];
-    spacing: 10px;
-    padding: 4px;
+    spacing: 8px;
+    padding: 2px;
     background-color: #1A202B;
 }
 
 prompt {
-    padding: 8px 12px;
+    padding: 6px 10px;
     border-radius: 6px;
     background-color: #89B4FA;
     text-color: #1A202B;
 }
 
 entry {
-    padding: 8px 12px;
+    padding: 6px 10px;
     background-color: #202936;
     text-color: #D8DEE9;
     placeholder: "Найти обои";
@@ -49,34 +49,33 @@ entry {
 
 listview {
     columns: 1;
-    lines: 2;
+    lines: 7;
+    layout: vertical;
     flow: vertical;
     fixed-columns: true;
     fixed-height: false;
     dynamic: true;
-    spacing: 14px;
-    scrollbar: false;
+    spacing: 3px;
+    scrollbar: true;
     background-color: #1A202B;
 }
 
 element {
     orientation: horizontal;
-    spacing: 18px;
-    padding: 12px;
+    spacing: 10px;
+    padding: 5px 8px;
     border: 0px;
-    border-radius: 8px;
+    border-radius: 7px;
     background-color: #202936;
     text-color: #D8DEE9;
 }
 
 element-icon {
-    size: 340px;
-    vertical-align: 0.5;
+    size: 88px;
     background-color: transparent;
 }
 
 element-text {
-    horizontal-align: 0.0;
     vertical-align: 0.5;
     background-color: transparent;
     text-color: inherit;
@@ -84,7 +83,7 @@ element-text {
 
 element selected {
     border: 0px;
-    border-radius: 8px;
+    border-radius: 7px;
     background-color: #303B4D;
     text-color: #89B4FA;
 }
