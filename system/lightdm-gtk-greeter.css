@@ -1,0 +1,95 @@
+/* TheodoreVAC LightDM GTK greeter: Polybar / Alacritty / Yazi palette. */
+
+.lightdm-gtk-greeter {
+    background-color: #111720;
+    color: #D8DEE9;
+    font-family: "DejaVu Sans Mono";
+}
+
+/* Keep the empty indicator window from leaving a strip at the top. */
+#panel_window {
+    opacity: 0;
+}
+
+#login_window,
+#shutdown_dialog,
+#restart_dialog {
+    background-color: #1A202B;
+    color: #D8DEE9;
+    border: 1px solid #303B4D;
+    border-radius: 8px;
+    box-shadow: 0 10px 36px alpha(#000000, 0.45);
+    padding: 22px;
+}
+
+#login_window .entry {
+    color: #D8DEE9;
+    background-color: #111720;
+    background-image: none;
+    border: 1px solid #303B4D;
+    border-radius: 5px;
+    padding: 9px 11px;
+    min-height: 20px;
+    box-shadow: none;
+    caret-color: #89B4FA;
+}
+
+#login_window .entry:focus {
+    border-color: #89B4FA;
+    box-shadow: 0 0 0 1px alpha(#89B4FA, 0.25);
+}
+
+#login_window #user_combobox {
+    color: #D8DEE9;
+    font-size: 14px;
+}
+
+#login_window .button,
+#shutdown_dialog .button,
+#restart_dialog .button {
+    color: #D8DEE9;
+    background-color: #202936;
+    background-image: none;
+    border: 1px solid #303B4D;
+    border-radius: 5px;
+    padding: 8px 14px;
+    box-shadow: none;
+}
+
+#login_window .button:hover,
+#shutdown_dialog .button:hover,
+#restart_dialog .button:hover {
+    background-color: #303B4D;
+    border-color: #89B4FA;
+}
+
+#login_window .button:default,
+#login_window .button.suggested-action {
+    color: #111720;
+    background-color: #89B4FA;
+    border-color: #89B4FA;
+    font-weight: bold;
+}
+
+#login_window .button:default:hover,
+#login_window .button.suggested-action:hover {
+    background-color: #A6C8FC;
+}
+
+#login_window .label,
+#shutdown_dialog .label,
+#restart_dialog .label {
+    color: #D8DEE9;
+}
+
+#login_window .error,
+#login_window .warning {
+    color: #F38BA8;
+}
+
+#login_window .menubar,
+#login_window .menu,
+#login_window .menuitem {
+    color: #D8DEE9;
+    background-color: #1A202B;
+}
