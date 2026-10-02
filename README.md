@@ -101,6 +101,7 @@ The script asks for `sudo`, backs up the previous file and only changes `/etc/li
 | `Super+F10` | Volume mixer — Pavucontrol |
 | `Super+F11` | Show / hide the Polybar tray |
 | `Super+F12` | Show / hide the window title in Polybar |
+| `Super+B` | Hide / show Polybar and give its top gap to the window |
 | `Alt+Shift` | Switch layout US ⇄ RU |
 
 ### Focus and windows

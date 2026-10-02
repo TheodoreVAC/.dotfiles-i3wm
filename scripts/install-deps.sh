@@ -76,6 +76,11 @@ if ! python3 -c 'import PIL' >/dev/null 2>&1; then
     missing+=(python-pillow)
 fi
 
+# Xlib — polybar/toggle.sh определяет по нему, виден ли бар.
+if ! python3 -c 'import Xlib' >/dev/null 2>&1; then
+    missing+=(python-xlib)
+fi
+
 if ((${#missing[@]})); then
     mapfile -t missing < <(printf '%s\n' "${missing[@]}" | sort -u)
 fi
