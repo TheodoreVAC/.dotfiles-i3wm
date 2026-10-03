@@ -1,0 +1,374 @@
+/* ============================================================
+   Thunar — terminal style
+   Палитра: ~/.config/polybar/config.ini → [colors]
+   ============================================================ */
+
+@define-color os-bg        #1A202B;
+@define-color os-bg-alt    #111720;
+@define-color os-sunk      #0C111A;
+@define-color os-fg        #D8DEE9;
+@define-color os-dim       #6F7785;
+@define-color os-line      #242D3C;
+@define-color os-blue      #89B4FA;
+@define-color os-green     #8FB0A6;
+@define-color os-yellow    #B9B096;
+@define-color os-purple    #9E9BC4;
+@define-color os-red       #C4727E;
+
+
+/* ============================================================
+   Общие поверхности: меню, подсказки, поля ввода
+   ============================================================ */
+
+menu {
+  background-color: @os-bg-alt;
+  background-image: none;
+  color: @os-fg;
+  border: 1px solid @os-line;
+  border-radius: 6px;
+}
+
+menu menuitem {
+  color: @os-fg;
+}
+
+menu menuitem:hover,
+menu menuitem:selected {
+  background-color: alpha(@os-blue, 0.22);
+  color: @os-blue;
+}
+
+menu separator {
+  background-color: @os-line;
+}
+
+tooltip {
+  background-color: @os-bg-alt;
+  background-image: none;
+  color: @os-fg;
+  border: 1px solid @os-line;
+  border-radius: 4px;
+}
+
+entry {
+  background-color: @os-sunk;
+  background-image: none;
+  color: @os-fg;
+  border: 1px solid @os-line;
+  border-radius: 4px;
+  box-shadow: none;
+}
+
+entry:focus {
+  border-color: @os-blue;
+}
+
+entry selection {
+  background-color: @os-blue;
+  color: @os-sunk;
+}
+
+entry image {
+  color: @os-dim;
+}
+
+
+/* ============================================================
+   Окно
+   ============================================================ */
+
+window.thunar {
+  font-family: "AdwaitaMono Nerd Font", "AdwaitaMono Nerd Font Mono", monospace;
+  font-size: 12px;
+  background-color: @os-bg;
+  color: @os-fg;
+}
+
+
+/* ============================================================
+   Заголовок, тулбар, кнопки окна
+   ============================================================ */
+
+window.thunar headerbar {
+  background-color: @os-bg-alt;
+  background-image: none;
+  border: none;
+  box-shadow: none;
+  color: @os-fg;
+}
+
+window.thunar headerbar:backdrop {
+  background-color: @os-bg-alt;
+}
+
+window.thunar headerbar .title {
+  color: @os-fg;
+}
+
+window.thunar toolbar {
+  background-color: transparent;
+  background-image: none;
+  border: none;
+  box-shadow: none;
+  padding: 2px;
+}
+
+window.thunar toolbar separator {
+  background-color: @os-line;
+}
+
+window.thunar toolbar button,
+window.thunar toolbar .button,
+window.thunar toolbar toolbutton {
+  background-color: transparent;
+  background-image: none;
+  border: none;
+  border-radius: 4px;
+  box-shadow: none;
+  color: @os-fg;
+  padding: 4px;
+  margin: 0;
+}
+
+window.thunar toolbar button:hover,
+window.thunar toolbar .button:hover {
+  background-color: alpha(@os-blue, 0.16);
+  color: @os-blue;
+}
+
+window.thunar toolbar button:active,
+window.thunar toolbar button:checked,
+window.thunar toolbar .button:active,
+window.thunar toolbar .button:checked {
+  background-color: alpha(@os-blue, 0.30);
+  color: @os-blue;
+}
+
+window.thunar toolbar button:disabled {
+  color: alpha(@os-dim, 0.55);
+}
+
+/* кнопки окна в заголовке (если CSD включён) */
+window.thunar headerbar .titlebutton {
+  border-radius: 4px;
+}
+
+window.thunar headerbar .titlebutton:hover {
+  background-color: alpha(@os-fg, 0.10);
+}
+
+
+/* ============================================================
+   Адресная строка
+   ============================================================ */
+
+window.thunar headerbar entry,
+window.thunar toolbar entry {
+  background-color: @os-sunk;
+  background-image: none;
+  color: @os-fg;
+  border: 1px solid @os-line;
+  border-radius: 4px;
+  box-shadow: none;
+  padding: 3px 8px;
+}
+
+window.thunar headerbar entry:focus,
+window.thunar toolbar entry:focus {
+  border-color: @os-blue;
+}
+
+/* режим хлебных крошек */
+window.thunar .path-bar {
+  background: none;
+}
+
+window.thunar .path-bar button {
+  background-color: transparent;
+  background-image: none;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  color: @os-dim;
+  padding: 3px 8px;
+}
+
+window.thunar .path-bar button:hover {
+  background-color: alpha(@os-fg, 0.08);
+  color: @os-fg;
+}
+
+window.thunar .path-bar button:last-child {
+  color: @os-blue;
+}
+
+
+/* ============================================================
+   Боковая панель (Places / дерево)
+   ============================================================ */
+
+window.thunar .sidebar {
+  background-color: @os-bg-alt;
+  background-image: none;
+  color: @os-fg;
+  border: none;
+  box-shadow: none;
+}
+
+window.thunar .sidebar .view {
+  background-color: @os-bg-alt;
+  background-image: none;
+  color: @os-fg;
+}
+
+window.thunar .sidebar .view:selected,
+window.thunar .sidebar .view:selected:focus {
+  background-color: alpha(@os-blue, 0.18);
+  color: @os-blue;
+}
+
+window.thunar .sidebar scrolledwindow,
+window.thunar .sidebar .view {
+  border: none;
+}
+
+
+/* ============================================================
+   Список файлов
+   ============================================================ */
+
+window.thunar .view {
+  background-color: @os-bg;
+  background-image: none;
+  color: @os-fg;
+}
+
+window.thunar .standard-view {
+  background-color: @os-bg;
+  background-image: none;
+  color: @os-fg;
+}
+
+window.thunar .view:selected,
+window.thunar .view:selected:focus,
+window.thunar .standard-view:selected {
+  background-color: alpha(@os-blue, 0.24);
+  color: #EDF3FF;
+}
+
+window.thunar iconview.view.cell:hover,
+window.thunar treeview.view.row:hover {
+  background-color: alpha(@os-fg, 0.06);
+}
+
+window.thunar .rubberband {
+  background-color: alpha(@os-blue, 0.18);
+  border: 1px dashed @os-blue;
+}
+
+/* колонки в подробном списке */
+window.thunar treeview header button {
+  background-color: @os-bg-alt;
+  background-image: none;
+  color: @os-dim;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 4px 8px;
+}
+
+window.thunar treeview header button:hover {
+  color: @os-blue;
+}
+
+window.thunar treeview row {
+  color: @os-fg;
+}
+
+
+/* ============================================================
+   Вкладки
+   ============================================================ */
+
+window.thunar notebook {
+  background-color: @os-bg;
+}
+
+window.thunar notebook header {
+  background-color: @os-bg-alt;
+  background-image: none;
+  border: none;
+  box-shadow: none;
+}
+
+window.thunar notebook tab {
+  background-color: @os-bg-alt;
+  background-image: none;
+  color: @os-dim;
+  border: none;
+  border-radius: 4px 4px 0 0;
+  box-shadow: none;
+  padding: 4px 12px;
+  margin: 0;
+}
+
+window.thunar notebook tab:checked,
+window.thunar notebook tab:active {
+  background-color: @os-bg;
+  color: @os-blue;
+}
+
+
+/* ============================================================
+   Статусбар и меню внутри окна
+   ============================================================ */
+
+window.thunar statusbar {
+  background-color: @os-bg-alt;
+  background-image: none;
+  color: @os-dim;
+  border: none;
+  box-shadow: none;
+}
+
+window.thunar statusbar label {
+  color: @os-dim;
+}
+
+window.thunar menubar {
+  background-color: @os-bg-alt;
+  background-image: none;
+  color: @os-fg;
+  border: none;
+}
+
+window.thunar menubar menuitem:hover {
+  background-color: alpha(@os-blue, 0.18);
+  color: @os-blue;
+}
+
+window.thunar .frame {
+  border: none;
+}
+
+window.thunar scrollbar {
+  background-color: transparent;
+  background-image: none;
+  min-width: 8px;
+}
+
+window.thunar scrollbar slider {
+  background-color: #2E3848;
+  border: none;
+  border-radius: 4px;
+  min-width: 6px;
+  min-height: 6px;
+}
+
+window.thunar scrollbar slider:hover {
+  background-color: @os-dim;
+}
+
+window.thunar scrollbar trough {
+  background-color: transparent;
+}

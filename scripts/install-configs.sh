@@ -52,6 +52,7 @@ done <<'FILES'
 .config/dunst/toggle-dnd.sh
 .config/dunst/volume-notify.sh
 .config/fastfetch/config.jsonc
+.config/gtk-3.0/gtk.css
 .config/gtk-3.0/settings.ini
 .config/gtk-4.0/settings.ini
 .config/i3/config
@@ -93,6 +94,9 @@ if ((dry_run)); then
     printf '\nPreview complete; no files were changed.\n'
 else
     printf '\nConfigs are linked. Existing files were moved to timestamped .pre-dotfiles backups.\n'
+    if [[ ! -d "$HOME/.icons/Papirus-OS" ]]; then
+        python3 "$repo_dir/scripts/papirus-os-icons.py" || true
+    fi
 fi
 
 if ! "$repo_dir/scripts/install-deps.sh" --check >/dev/null 2>&1; then
