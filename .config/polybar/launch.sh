@@ -17,6 +17,21 @@ for attempt in {1..20}; do
     sleep 0.1
 done
 
+# Восстанавливаем сохранённое состояние tray и xwindow (Super+F11 / Super+F12).
+state_dir="${XDG_STATE_HOME:-$HOME/.local/state}/polybar"
+apply_state() {
+    local mod="$1" def="$2" cur action
+    cur="$(cat "$state_dir/$mod.state" 2>/dev/null || true)"
+    [ -n "$cur" ] || cur="$def"
+    case "$cur" in
+        shown) action=module_show ;;
+        *)     action=module_hide ;;
+    esac
+    polybar-msg -p "$example_pid" action "#${mod}.${action}" >/dev/null 2>&1 || true
+}
+apply_state tray hidden
+apply_state xwindow shown
+
 # Keep the visible bar's spacing in sync after i3 starts or reloads.
 i3-msg -q gaps inner all set 4 >/dev/null 2>&1 || true
 i3-msg -q gaps outer all set 4 >/dev/null 2>&1 || true

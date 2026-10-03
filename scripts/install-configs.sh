@@ -65,6 +65,8 @@ done <<'FILES'
 .config/polybar/i3-mode.sh
 .config/polybar/launch.sh
 .config/polybar/toggle.sh
+.config/polybar/net-status.sh
+.config/polybar/module-toggle.sh
 .config/polybar/wifi-status.sh
 .config/rofi/config.rasi
 .config/rofi/notifications.rasi

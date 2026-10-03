@@ -288,8 +288,8 @@ bindsym $mod+Ctrl+n exec --no-startup-id ~/.config/dunst/toggle-dnd.sh
 # ==========================================================
 
 exec_always --no-startup-id ~/.config/polybar/launch.sh
-bindsym $mod+F11 exec --no-startup-id polybar-msg action "#tray.module_toggle"
-bindsym $mod+F12 exec --no-startup-id polybar-msg action "#xwindow.module_toggle"
+bindsym $mod+F11 exec --no-startup-id ~/.config/polybar/module-toggle.sh tray
+bindsym $mod+F12 exec --no-startup-id ~/.config/polybar/module-toggle.sh xwindow
 
 # Super+B — скрыть/показать Polybar, освободив верхний отступ под окно
 bindsym $mod+b exec --no-startup-id ~/.config/polybar/toggle.sh
