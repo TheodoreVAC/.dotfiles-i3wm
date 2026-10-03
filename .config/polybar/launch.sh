@@ -33,9 +33,15 @@ apply_state tray hidden
 apply_state xwindow shown
 
 # Keep the visible bar's spacing in sync after i3 starts or reloads.
-i3-msg -q gaps inner all set 4 >/dev/null 2>&1 || true
-i3-msg -q gaps outer all set 4 >/dev/null 2>&1 || true
-i3-msg -q gaps top all set 42 >/dev/null 2>&1 || true
-
-# The bar is visible again, so drop the hidden-state flag used by toggle.sh.
-rm -f "${XDG_RUNTIME_DIR:-/tmp}/polybar-hidden-${UID}"
+# Если бар был скрыт (Super+B), оставляем его скрытым и после перезагрузки i3.
+STATE_FILE="${XDG_RUNTIME_DIR:-/tmp}/polybar-hidden-${UID}"
+if [ -e "$STATE_FILE" ]; then
+    polybar-msg -p "$example_pid" cmd hide >/dev/null 2>&1 || true
+    i3-msg -q gaps inner all set 4 >/dev/null 2>&1 || true
+    i3-msg -q gaps outer all set 4 >/dev/null 2>&1 || true
+    i3-msg -q gaps top all set 4 >/dev/null 2>&1 || true
+else
+    i3-msg -q gaps inner all set 4 >/dev/null 2>&1 || true
+    i3-msg -q gaps outer all set 4 >/dev/null 2>&1 || true
+    i3-msg -q gaps top all set 42 >/dev/null 2>&1 || true
+fi
