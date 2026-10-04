@@ -332,16 +332,26 @@ gaps inner 4
 gaps outer 4
 gaps top 4
 
-# Цвета окон (красная тема)
+# Цвета окон и вкладок (Redline)
+# Формат: client.<состояние> <рамка> <фон> <текст> <индикатор> <рамка содержимого>
 
-# Активное окно — красный акцент Polybar
-client.focused          #E63946 #1A1215 #EADCDE #E63946 #E63946
+# Пустое место внутри контейнера
+client.background       #120C0E
 
-# Неактивное окно — тёмный тёплый серый
-client.unfocused        #4A3B3E #4A3B3E #EADCDE #4A3B3E #4A3B3E
+# Активная вкладка / окно: красная рамка, приподнятый фон, светлый текст
+client.focused          #E63946 #241A1D #EADCDE #FF5A63 #E63946
+
+# Активная вкладка на воркспейсе не в фокусе: без яркого текста, но с красным контуром
+client.focused_inactive #4A3B3E #1A1215 #8C7376 #E63946 #4A3B3E
+
+# Неактивные вкладки: самый тёмный фон, тусклый текст, тонкая разделительная линия
+client.unfocused        #3A2A2E #120C0E #8C7376 #3A2A2E #3A2A2E
 
 # Срочное окно
-client.urgent           #FF5A63 #1A1215 #FFFFFF #FF5A63 #FF5A63
+client.urgent           #FF5A63 #2E1F23 #FFFFFF #FF5A63 #FF5A63
+
+# Окно, которое ещё не отрисовано
+client.placeholder      #120C0E #120C0E #8C7376 #3A2A2E #120C0E
 # picom
 # Запуск композитора picom с указанным конфигурационным файлом
 exec_always --no-startup-id picom --config ~/.config/picom/picom.conf
