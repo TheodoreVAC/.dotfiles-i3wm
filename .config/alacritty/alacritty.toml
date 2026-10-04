@@ -16,12 +16,12 @@ family = "DejaVu Sans Mono"
 style = "Italic"
 
 [colors.primary]
-background = "#1A1215"
+background = "#000000"
 foreground = "#EADCDE"
 
 [colors.cursor]
 cursor = "#E63946"
-text = "#1A1215"
+text = "#000000"
 
 [colors.selection]
 background = "#E63946"
