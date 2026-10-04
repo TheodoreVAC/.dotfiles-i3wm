@@ -322,8 +322,8 @@ bindsym $mod+Print exec --no-startup-id ~/.config/i3/screenshot.sh area
 # в обычном (тайловом) режиме
 # Рамки без заголовков
 
-default_border pixel 3
-default_floating_border pixel 2
+default_border pixel 0
+default_floating_border pixel 0
 
 # Отступы между окнами.
 # Polybar — dock-окно со струтами: i3 сам резервирует под бар
@@ -338,14 +338,14 @@ gaps top 4
 # Пустое место внутри контейнера
 client.background       #120C0E
 
-# Активная вкладка / окно: красная рамка, приподнятый фон, светлый текст
-client.focused          #E63946 #241A1D #EADCDE #FF5A63 #E63946
+# Активная вкладка / окно: нейтральная серая рамка, приподнятый фон, светлый текст
+client.focused          #6E6E6E #241A1D #EADCDE #6E6E6E #6E6E6E
 
-# Активная вкладка на воркспейсе не в фокусе: без яркого текста, но с красным контуром
-client.focused_inactive #4A3B3E #1A1215 #8C7376 #E63946 #4A3B3E
+# Активная вкладка на воркспейсе не в фокусе: без яркого текста, тусклая рамка
+client.focused_inactive #3E3E3E #1A1215 #8C7376 #3E3E3E #3E3E3E
 
 # Неактивные вкладки: самый тёмный фон, тусклый текст, тонкая разделительная линия
-client.unfocused        #3A2A2E #120C0E #8C7376 #3A2A2E #3A2A2E
+client.unfocused        #2A2A2A #120C0E #8C7376 #2A2A2A #2A2A2A
 
 # Срочное окно
 client.urgent           #FF5A63 #2E1F23 #FFFFFF #FF5A63 #FF5A63
