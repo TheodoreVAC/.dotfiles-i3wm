@@ -28,7 +28,7 @@ My dark-themed i3 desktop configuration. The repository contains the configs, th
 - **Notifications**: dunst styled after the theme — dark cards under the bar, rounded corners, urgency-colored frames (blue / grey / pink), progress bars, Papirus icons. History opens in Rofi (`Super+N`) with copy, clear and repeat actions. Volume and microphone show an OSD progress bar; screenshots pop up with a preview thumbnail.
 - **Rofi, Picom, Dunst, Alacritty, Yazi, GTK and Fastfetch.**
 - **Zsh** with Oh My Zsh and Powerlevel10k, `eza` aliases.
-- **Icons and cursor**: the `Papirus-OS` icon theme is generated from the system Papirus by `scripts/papirus-os-icons.py` (folders recolored to the theme palette, `Context=MimeTypes` for the KF6 look) and linked into `~/.local/share/icons` for Dolphin; the bundled `Moga-Neon-Blue` cursor theme is set in `.Xresources`, GTK and KDE.
+- **Icons and cursor**: the `Papirus-OS` icon theme is generated from the system Papirus by `scripts/papirus-os-icons.py` (folders recolored to the theme palette, `Context=MimeTypes` for the KF6 look) and linked into `~/.local/share/icons` for Dolphin; the bundled `Moga-Neon-Red` cursor theme (a red recolor of Moyash's `Moga-Neon-Blue`) is set in `.Xresources`, GTK and KDE.
 - **X11**: `.xinitrc` and `.Xresources`.
 
 ## Installation
@@ -175,4 +175,4 @@ The script asks for `sudo`, backs up the previous file and only changes `/etc/li
 
 Adwaita Mono Nerd Font is distributed under the SIL Open Font License; the license text is included in `.local/share/fonts/LICENSE`.
 
-The `Moga-Neon-Blue` cursor theme is by Moyash (CC BY-NC-ND); `ReadMe.txt` with the original attribution is kept inside `.local/share/icons/Moga-Neon-Blue`.
+The `Moga-Neon-Red` cursor theme is a red recolor of `Moga-Neon-Blue` by Moyash (CC BY-NC-ND); the untouched original `ReadMe.txt` with the attribution is kept inside `.local/share/icons/Moga-Neon-Red`.

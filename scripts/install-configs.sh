@@ -77,7 +77,7 @@ done <<'FILES'
 .config/rofi/wallpaper-picker.rasi
 .config/yazi/theme.toml
 .local/share/color-schemes/Redline.colors
-.local/share/icons/Moga-Neon-Blue
+.local/share/icons/Moga-Neon-Red
 FILES
 
 font_dir="$repo_dir/.local/share/fonts"
