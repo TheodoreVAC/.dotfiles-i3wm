@@ -325,21 +325,23 @@ bindsym $mod+Print exec --no-startup-id ~/.config/i3/screenshot.sh area
 default_border pixel 3
 default_floating_border pixel 2
 
-# Отступы между окнами
+# Отступы между окнами.
+# Polybar — dock-окно со струтами: i3 сам резервирует под бар
+# его высоту (32px), поэтому gaps top обычный крайний отступ.
 gaps inner 4
 gaps outer 4
-gaps top 42
+gaps top 4
 
-# Цвета окон
+# Цвета окон (красная тема)
 
-# Активное окно — голубой как активный workspace Polybar
-client.focused          #89B4FA #89B4FA #1A202B #89B4FA #89B4FA
+# Активное окно — красный акцент Polybar
+client.focused          #E63946 #1A1215 #EADCDE #E63946 #E63946
 
-# Неактивное окно — тёмный холодный серый
-client.unfocused        #454A54 #454A54 #D8DEE9 #454A54 #454A54
+# Неактивное окно — тёмный тёплый серый
+client.unfocused        #4A3B3E #4A3B3E #EADCDE #4A3B3E #4A3B3E
 
 # Срочное окно
-client.urgent           #F38BA8 #F38BA8 #FFFFFF #F38BA8 #F38BA8
+client.urgent           #FF5A63 #1A1215 #FFFFFF #FF5A63 #FF5A63
 # picom
 # Запуск композитора picom с указанным конфигурационным файлом
 exec_always --no-startup-id picom --config ~/.config/picom/picom.conf

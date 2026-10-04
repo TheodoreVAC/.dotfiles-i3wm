@@ -1,19 +1,19 @@
 /* ============================================================
-   Thunar — terminal style
+   Thunar — red style
    Палитра: ~/.config/polybar/config.ini → [colors]
    ============================================================ */
 
-@define-color os-bg        #1A202B;
-@define-color os-bg-alt    #111720;
-@define-color os-sunk      #0C111A;
-@define-color os-fg        #D8DEE9;
-@define-color os-dim       #6F7785;
-@define-color os-line      #242D3C;
-@define-color os-blue      #89B4FA;
-@define-color os-green     #8FB0A6;
-@define-color os-yellow    #B9B096;
-@define-color os-purple    #9E9BC4;
-@define-color os-red       #C4727E;
+@define-color os-bg        #1A1215;
+@define-color os-bg-alt    #120C0E;
+@define-color os-sunk      #0D0809;
+@define-color os-fg        #EADCDE;
+@define-color os-dim       #8C7376;
+@define-color os-line      #3A2A2E;
+@define-color os-accent      #E63946;
+@define-color os-green     #E0A458;
+@define-color os-yellow    #E9843F;
+@define-color os-purple    #C2555F;
+@define-color os-red       #FF5A63;
 
 
 /* ============================================================
@@ -25,7 +25,7 @@ menu {
   background-image: none;
   color: @os-fg;
   border: 1px solid @os-line;
-  border-radius: 6px;
+  border-radius: 2px;
 }
 
 menu menuitem {
@@ -34,8 +34,8 @@ menu menuitem {
 
 menu menuitem:hover,
 menu menuitem:selected {
-  background-color: alpha(@os-blue, 0.22);
-  color: @os-blue;
+  background-color: alpha(@os-accent, 0.22);
+  color: @os-accent;
 }
 
 menu separator {
@@ -47,7 +47,7 @@ tooltip {
   background-image: none;
   color: @os-fg;
   border: 1px solid @os-line;
-  border-radius: 4px;
+  border-radius: 2px;
 }
 
 entry {
@@ -55,16 +55,16 @@ entry {
   background-image: none;
   color: @os-fg;
   border: 1px solid @os-line;
-  border-radius: 4px;
+  border-radius: 2px;
   box-shadow: none;
 }
 
 entry:focus {
-  border-color: @os-blue;
+  border-color: @os-accent;
 }
 
 entry selection {
-  background-color: @os-blue;
+  background-color: @os-accent;
   color: @os-sunk;
 }
 
@@ -123,7 +123,7 @@ window.thunar toolbar toolbutton {
   background-color: transparent;
   background-image: none;
   border: none;
-  border-radius: 4px;
+  border-radius: 2px;
   box-shadow: none;
   color: @os-fg;
   padding: 4px;
@@ -132,16 +132,16 @@ window.thunar toolbar toolbutton {
 
 window.thunar toolbar button:hover,
 window.thunar toolbar .button:hover {
-  background-color: alpha(@os-blue, 0.16);
-  color: @os-blue;
+  background-color: alpha(@os-accent, 0.16);
+  color: @os-accent;
 }
 
 window.thunar toolbar button:active,
 window.thunar toolbar button:checked,
 window.thunar toolbar .button:active,
 window.thunar toolbar .button:checked {
-  background-color: alpha(@os-blue, 0.30);
-  color: @os-blue;
+  background-color: alpha(@os-accent, 0.30);
+  color: @os-accent;
 }
 
 window.thunar toolbar button:disabled {
@@ -150,7 +150,7 @@ window.thunar toolbar button:disabled {
 
 /* кнопки окна в заголовке (если CSD включён) */
 window.thunar headerbar .titlebutton {
-  border-radius: 4px;
+  border-radius: 2px;
 }
 
 window.thunar headerbar .titlebutton:hover {
@@ -168,14 +168,14 @@ window.thunar toolbar entry {
   background-image: none;
   color: @os-fg;
   border: 1px solid @os-line;
-  border-radius: 4px;
+  border-radius: 2px;
   box-shadow: none;
   padding: 3px 8px;
 }
 
 window.thunar headerbar entry:focus,
 window.thunar toolbar entry:focus {
-  border-color: @os-blue;
+  border-color: @os-accent;
 }
 
 /* режим хлебных крошек */
@@ -199,7 +199,7 @@ window.thunar .path-bar button:hover {
 }
 
 window.thunar .path-bar button:last-child {
-  color: @os-blue;
+  color: @os-accent;
 }
 
 
@@ -223,8 +223,8 @@ window.thunar .sidebar .view {
 
 window.thunar .sidebar .view:selected,
 window.thunar .sidebar .view:selected:focus {
-  background-color: alpha(@os-blue, 0.18);
-  color: @os-blue;
+  background-color: alpha(@os-accent, 0.18);
+  color: @os-accent;
 }
 
 window.thunar .sidebar scrolledwindow,
@@ -252,8 +252,8 @@ window.thunar .standard-view {
 window.thunar .view:selected,
 window.thunar .view:selected:focus,
 window.thunar .standard-view:selected {
-  background-color: alpha(@os-blue, 0.24);
-  color: #EDF3FF;
+  background-color: alpha(@os-accent, 0.24);
+  color: #FFF0F1;
 }
 
 window.thunar iconview.view.cell:hover,
@@ -262,8 +262,8 @@ window.thunar treeview.view.row:hover {
 }
 
 window.thunar .rubberband {
-  background-color: alpha(@os-blue, 0.18);
-  border: 1px dashed @os-blue;
+  background-color: alpha(@os-accent, 0.18);
+  border: 1px dashed @os-accent;
 }
 
 /* колонки в подробном списке */
@@ -278,7 +278,7 @@ window.thunar treeview header button {
 }
 
 window.thunar treeview header button:hover {
-  color: @os-blue;
+  color: @os-accent;
 }
 
 window.thunar treeview row {
@@ -306,7 +306,7 @@ window.thunar notebook tab {
   background-image: none;
   color: @os-dim;
   border: none;
-  border-radius: 4px 4px 0 0;
+  border-radius: 2px 2px 0 0;
   box-shadow: none;
   padding: 4px 12px;
   margin: 0;
@@ -315,7 +315,7 @@ window.thunar notebook tab {
 window.thunar notebook tab:checked,
 window.thunar notebook tab:active {
   background-color: @os-bg;
-  color: @os-blue;
+  color: @os-accent;
 }
 
 
@@ -343,8 +343,8 @@ window.thunar menubar {
 }
 
 window.thunar menubar menuitem:hover {
-  background-color: alpha(@os-blue, 0.18);
-  color: @os-blue;
+  background-color: alpha(@os-accent, 0.18);
+  color: @os-accent;
 }
 
 window.thunar .frame {
@@ -358,9 +358,9 @@ window.thunar scrollbar {
 }
 
 window.thunar scrollbar slider {
-  background-color: #2E3848;
+  background-color: #3A2A2E;
   border: none;
-  border-radius: 4px;
+  border-radius: 2px;
   min-width: 6px;
   min-height: 6px;
 }

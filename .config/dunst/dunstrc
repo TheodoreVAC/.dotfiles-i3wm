@@ -1,6 +1,6 @@
 #===========================================================
-#              DUNST — DARK FLOATING STYLE
-#   Та же палитра, что у Polybar и Rofi (#1a202b / #89B4FA)
+#              DUNST — RED STYLE
+#   Та же палитра, что у Polybar и Rofi (#1A1215 / #E63946)
 #===========================================================
 
 [global]
@@ -19,12 +19,12 @@ width = 360
 height = (0, 320)
 notification_limit = 4
 
-corner_radius = 12
+corner_radius = 3
 corners = all
 transparency = 0
 
 frame_width = 2
-frame_color = "#303B4D"
+frame_color = "#E63946"
 
 # Зазор между уведомлениями (нужен композитор, picom запущен).
 gap_size = 8
@@ -45,7 +45,7 @@ progress_bar_height = 8
 progress_bar_frame_width = 0
 progress_bar_min_width = 150
 progress_bar_max_width = 316
-progress_bar_corner_radius = 4
+progress_bar_corner_radius = 2
 progress_bar_corners = all
 
 indicate_hidden = true
@@ -70,7 +70,7 @@ show_indicators = true
 icon_position = left
 min_icon_size = 48
 max_icon_size = 64
-icon_corner_radius = 6
+icon_corner_radius = 2
 icon_corners = all
 icon_theme = Papirus-Dark
 enable_recursive_icon_lookup = true
@@ -97,22 +97,22 @@ mouse_right_click = close_current
 #==========================================================
 
 [urgency_low]
-    background = "#161B24"
-    foreground = "#6F7785"
-    frame_color = "#4C566A"
-    highlight = "#4C566A"
+    background = "#120C0E"
+    foreground = "#8C7376"
+    frame_color = "#3A2A2E"
+    highlight = "#3A2A2E"
     timeout = 3
 
 [urgency_normal]
-    background = "#1A202B"
-    foreground = "#D8DEE9"
-    frame_color = "#89B4FA"
-    highlight = "#89B4FA"
+    background = "#1A1215"
+    foreground = "#EADCDE"
+    frame_color = "#E63946"
+    highlight = "#E63946"
     timeout = 5
 
 [urgency_critical]
-    background = "#1A202B"
-    foreground = "#F5C2E7"
-    frame_color = "#F38BA8"
-    highlight = "#F38BA8"
+    background = "#1A1215"
+    foreground = "#FFD9DB"
+    frame_color = "#FF5A63"
+    highlight = "#FF5A63"
     timeout = 0

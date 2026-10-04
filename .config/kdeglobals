@@ -1,0 +1,12 @@
+# Глобальные настройки KDE/Qt (Dolphin и другие приложения KDE).
+# Цвета — схема Redline: ~/.local/share/color-schemes/Redline.colors
+
+[General]
+ColorScheme=Redline
+
+[Icons]
+Theme=Papirus-OS
+
+[Mouse]
+CursorTheme=Moga-Neon-Blue
+Size=24

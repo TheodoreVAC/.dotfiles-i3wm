@@ -3,10 +3,10 @@
 # (окно растягивается вверх к краю экрана), либо вернуть бар обратно.
 set -u
 
-# Значения из ~/.config/i3/config: gaps inner 4, gaps outer 4, gaps top 42.
-# При скрытом баре верхний отступ сжимается до 4 (как у остальных краёв),
-# inner/outer остаются как в конфиге — по краям остаются отступы.
-GAP_TOP_SHOWN=42
+# Значения из ~/.config/i3/config: gaps inner 4, gaps outer 4, gaps top 4.
+# Бар — dock со струтами: место под него i3 резервирует сам, поэтому
+# при скрытом баре gaps top не меняется — окна просто занимают освободившуюся полосу.
+GAP_TOP_SHOWN=4
 GAP_TOP_HIDDEN=4
 GAP_OUTER_SHOWN=4
 GAP_OUTER_HIDDEN=4
@@ -20,6 +20,8 @@ gap() {
 }
 
 # 0 — окно бара замаплено, 1 — размаплено, 2 — определить не удалось.
+# В режиме dock (override-redirect = false) i3 репарентит окно бара в свой
+# i3-frame, поэтому ищем его рекурсивно, а не только среди детей корня.
 bar_mapped() {
     python3 -c '
 import sys
@@ -31,9 +33,16 @@ try:
     d = display.Display()
 except Exception:
     sys.exit(2)
-for w in d.screen().root.query_tree().children:
-    if w.get_wm_class() == ("polybar", "Polybar"):
-        sys.exit(0 if w.get_attributes().map_state == X.IsViewable else 1)
+stack = [d.screen().root]
+while stack:
+    try:
+        children = stack.pop().query_tree().children
+    except Exception:
+        continue
+    for w in children:
+        if w.get_wm_class() == ("polybar", "Polybar"):
+            sys.exit(0 if w.get_attributes().map_state == X.IsViewable else 1)
+        stack.append(w)
 sys.exit(1)
 ' 2>/dev/null
 }

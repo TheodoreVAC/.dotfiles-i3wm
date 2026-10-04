@@ -43,5 +43,5 @@ if [ -e "$STATE_FILE" ]; then
 else
     i3-msg -q gaps inner all set 4 >/dev/null 2>&1 || true
     i3-msg -q gaps outer all set 4 >/dev/null 2>&1 || true
-    i3-msg -q gaps top all set 42 >/dev/null 2>&1 || true
+    i3-msg -q gaps top all set 4 >/dev/null 2>&1 || true
 fi

@@ -46,6 +46,9 @@ done <<'FILES'
 .p10k.zsh
 .config/alacritty/alacritty.toml
 .config/alacritty/config.toml
+.config/btop/btop.conf
+.config/btop/themes/redline.theme
+.config/dolphinrc
 .config/dunst/dunstrc
 .config/dunst/history.sh
 .config/dunst/status.sh
@@ -60,6 +63,7 @@ done <<'FILES'
 .config/i3/wallpaper-picker.sh
 .config/systemd/user/autotiling.service
 .config/i3status/config
+.config/kdeglobals
 .config/picom/picom.conf
 .config/polybar/config.ini
 .config/polybar/i3-mode.sh
@@ -72,6 +76,8 @@ done <<'FILES'
 .config/rofi/notifications.rasi
 .config/rofi/wallpaper-picker.rasi
 .config/yazi/theme.toml
+.local/share/color-schemes/Redline.colors
+.local/share/icons/Moga-Neon-Blue
 FILES
 
 font_dir="$repo_dir/.local/share/fonts"
@@ -93,11 +99,33 @@ if [[ -d "$font_dir" ]]; then
 fi
 
 if ((dry_run)); then
+    if [[ ! -d "$HOME/.icons/Papirus-OS" ]]; then
+        printf 'Would generate the Papirus-OS icon theme into ~/.icons\n'
+    else
+        printf 'Would link %s -> %s\n' "$HOME/.local/share/icons/Papirus-OS" "$HOME/.icons/Papirus-OS"
+    fi
     printf '\nPreview complete; no files were changed.\n'
 else
     printf '\nConfigs are linked. Existing files were moved to timestamped .pre-dotfiles backups.\n'
     if [[ ! -d "$HOME/.icons/Papirus-OS" ]]; then
         python3 "$repo_dir/scripts/papirus-os-icons.py" || true
+    fi
+
+    # KF6 (Dolphin, KWrite, …) ищет темы в ~/.local/share/icons, не в ~/.icons
+    if [[ -d "$HOME/.icons/Papirus-OS" ]]; then
+        local_share_icons="$HOME/.local/share/icons"
+        mkdir -p -- "$local_share_icons"
+        target="$local_share_icons/Papirus-OS"
+        if [[ -L "$target" && "$(readlink -- "$target")" == "$HOME/.icons/Papirus-OS" ]]; then
+            :
+        else
+            if [[ -e "$target" || -L "$target" ]]; then
+                mv -- "$target" "$target.pre-dotfiles.$stamp"
+                printf 'Backed up existing file: %s.pre-dotfiles.%s\n' "$target" "$stamp"
+            fi
+            ln -s -- "$HOME/.icons/Papirus-OS" "$target"
+            printf 'Linked %s\n' "${target#"$HOME/"}"
+        fi
     fi
 fi
 

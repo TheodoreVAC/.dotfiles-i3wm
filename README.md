@@ -28,6 +28,7 @@ My dark-themed i3 desktop configuration. The repository contains the configs, th
 - **Notifications**: dunst styled after the theme — dark cards under the bar, rounded corners, urgency-colored frames (blue / grey / pink), progress bars, Papirus icons. History opens in Rofi (`Super+N`) with copy, clear and repeat actions. Volume and microphone show an OSD progress bar; screenshots pop up with a preview thumbnail.
 - **Rofi, Picom, Dunst, Alacritty, Yazi, GTK and Fastfetch.**
 - **Zsh** with Oh My Zsh and Powerlevel10k, `eza` aliases.
+- **Icons and cursor**: the `Papirus-OS` icon theme is generated from the system Papirus by `scripts/papirus-os-icons.py` (folders recolored to the theme palette, `Context=MimeTypes` for the KF6 look) and linked into `~/.local/share/icons` for Dolphin; the bundled `Moga-Neon-Blue` cursor theme is set in `.Xresources`, GTK and KDE.
 - **X11**: `.xinitrc` and `.Xresources`.
 
 ## Installation
@@ -167,7 +168,11 @@ The script asks for `sudo`, backs up the previous file and only changes `/etc/li
 - The main modifier is `Super`. The config targets the `HDMI-A-0` output at 1920×1080, 165 Hz — check these values when moving to another machine.
 - The last chosen wallpaper is stored by feh and restored on i3 startup; without a previous choice `default1.png` is used.
 - Dunst runs as a systemd user service (started automatically through D-Bus activation); the i3 config also launches it on session start.
+- The `Papirus-OS` icon theme is built once into `~/.icons/Papirus-OS`; delete the folder to force a rebuild with the next `install-configs.sh` run.
+- The cursor theme is applied by `xrdb -merge ~/.Xresources` (done by `.xinitrc` on login) and by the GTK/KDE settings; running applications keep the old cursor until restarted.
 
 ## License
 
 Adwaita Mono Nerd Font is distributed under the SIL Open Font License; the license text is included in `.local/share/fonts/LICENSE`.
+
+The `Moga-Neon-Blue` cursor theme is by Moyash (CC BY-NC-ND); `ReadMe.txt` with the original attribution is kept inside `.local/share/icons/Moga-Neon-Blue`.

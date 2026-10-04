@@ -3,9 +3,9 @@ general {
         interval = 1
         separator = ""
 
-        color_good = "#60a5fa"
-        color_bad = "#f87171"
-        color_degraded = "#fbbf24"
+        color_good = "#E63946"
+        color_bad = "#FF5A63"
+        color_degraded = "#E0A458"
 }
 
 order += "wireless _first_"

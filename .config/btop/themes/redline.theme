@@ -1,0 +1,81 @@
+# Redline theme for btop — красная палитра системы
+# Палитра: ~/.config/polybar/config.ini → [colors]
+
+# Main background, empty for terminal default, need to be empty if you want transparent background
+theme[main_bg]="#1A1215"
+
+# Main text color
+theme[main_fg]="#EADCDE"
+
+# Title color for boxes
+theme[title]="#E63946"
+
+# Highlight color for keyboard shortcuts
+theme[hi_fg]="#FF5A63"
+
+# Background color of selected item in processes box
+theme[selected_bg]="#E63946"
+
+# Foreground color of selected item in processes box
+theme[selected_fg]="#1A1215"
+
+# Color of inactive/disabled text
+theme[inactive_fg]="#8C7376"
+
+# Misc colors for processes box including mini cpu graphs, details memory graph and details status text
+theme[proc_misc]="#E9843F"
+
+# Cpu box outline color
+theme[cpu_box]="#3A2A2E"
+
+# Memory/disks box outline color
+theme[mem_box]="#3A2A2E"
+
+# Net up/down box outline color
+theme[net_box]="#3A2A2E"
+
+# Processes box outline color
+theme[proc_box]="#3A2A2E"
+
+# Box divider line and small boxes line color
+theme[div_line]="#3A2A2E"
+
+# Temperature graph colors
+theme[temp_start]="#E0A458"
+theme[temp_mid]="#E9843F"
+theme[temp_end]="#FF5A63"
+
+# CPU graph colors
+theme[cpu_start]="#E0A458"
+theme[cpu_mid]="#E9843F"
+theme[cpu_end]="#FF5A63"
+
+# Mem/Disk free meter
+theme[free_start]="#E0A458"
+theme[free_mid]="#E9843F"
+theme[free_end]="#FF5A63"
+
+# Mem/Disk cached meter
+theme[cached_start]="#E0A458"
+theme[cached_mid]="#E9843F"
+theme[cached_end]="#FF5A63"
+
+# Mem/Disk available meter
+theme[available_start]="#E0A458"
+theme[available_mid]="#E9843F"
+theme[available_end]="#FF5A63"
+
+# Mem/Disk used meter
+theme[used_start]="#E0A458"
+theme[used_mid]="#E9843F"
+theme[used_end]="#FF5A63"
+
+# Download graph colors
+theme[download_start]="#E0A458"
+theme[download_mid]="#E9843F"
+theme[download_end]="#FF5A63"
+
+# Upload graph colors
+theme[upload_start]="#E0A458"
+theme[upload_mid]="#E9843F"
+theme[upload_end]="#FF5A63"

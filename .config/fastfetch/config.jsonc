@@ -14,9 +14,9 @@
         },
 
         "color": {
-            "keys": "75",
-            "title": "75",
-            "output": "117"
+            "keys": "#E63946",
+            "title": "#E63946",
+            "output": "#EADCDE"
         },
 
         "percent": {
@@ -33,8 +33,8 @@
             "width": 10,
 
             "color": {
-                "elapsed": "75",
-                "total": "25"
+                "elapsed": "#E63946",
+                "total": "#3A2A2E"
             }
         }
     },
@@ -50,9 +50,9 @@
             "format": "{1}@{2}",
 
             "color": {
-                "user": "75",
-                "at": "75",
-                "host": "117"
+                "user": "#E63946",
+                "at": "#E63946",
+                "host": "#EADCDE"
             }
         },
 
@@ -66,69 +66,69 @@
         {
             "type": "custom",
             "format": "╭─ System ─────────────────────────────────────────╮",
-            "outputColor": "75"
+            "outputColor": "#E63946"
         },
 
         {
             "type": "os",
             "key": "├╴ OS       │",
-            "keyColor": "75",
-            "outputColor": "117"
+            "keyColor": "#E63946",
+            "outputColor": "#EADCDE"
         },
 
         {
             "type": "kernel",
             "key": "├╴ Kernel   │",
-            "keyColor": "75",
-            "outputColor": "117"
+            "keyColor": "#E63946",
+            "outputColor": "#EADCDE"
         },
 
         {
             "type": "uptime",
             "key": "├╴ Uptime   │",
-            "keyColor": "75",
-            "outputColor": "117"
+            "keyColor": "#E63946",
+            "outputColor": "#EADCDE"
         },
 
         {
             "type": "packages",
             "key": "├╴󰏖 Packages │",
-            "keyColor": "75",
-            "outputColor": "117"
+            "keyColor": "#E63946",
+            "outputColor": "#EADCDE"
         },
 
         {
             "type": "wm",
             "key": "├╴ WM       │",
-            "keyColor": "75",
-            "outputColor": "117"
+            "keyColor": "#E63946",
+            "outputColor": "#EADCDE"
         },
 
         {
             "type": "shell",
             "key": "├╴ Shell    │",
-            "keyColor": "75",
-            "outputColor": "117"
+            "keyColor": "#E63946",
+            "outputColor": "#EADCDE"
         },
 
         {
             "type": "terminal",
             "key": "├╴ Terminal │",
-            "keyColor": "75",
-            "outputColor": "117"
+            "keyColor": "#E63946",
+            "outputColor": "#EADCDE"
         },
 
         {
             "type": "terminalfont",
             "key": "├╴ Font     │",
-            "keyColor": "75",
-            "outputColor": "117"
+            "keyColor": "#E63946",
+            "outputColor": "#EADCDE"
         },
 
         {
             "type": "custom",
             "format": "╰───────────────────────────────────────────────────╯",
-            "outputColor": "75"
+            "outputColor": "#E63946"
         },
 
         "break",
@@ -141,59 +141,59 @@
         {
             "type": "custom",
             "format": "╭─ Hardware ────────────────────────────────────────╮",
-            "outputColor": "75"
+            "outputColor": "#E63946"
         },
 
         {
             "type": "cpu",
             "key": "├╴ CPU      │",
-            "keyColor": "75",
-            "outputColor": "117",
+            "keyColor": "#E63946",
+            "outputColor": "#EADCDE",
             "format": "{1} ({3} cores)"
         },
 
         {
             "type": "gpu",
             "key": "├╴󰾲 GPU      │",
-            "keyColor": "75",
-            "outputColor": "117"
+            "keyColor": "#E63946",
+            "outputColor": "#EADCDE"
         },
 
         {
             "type": "memory",
             "key": "├╴ RAM      │",
-            "keyColor": "75",
-            "outputColor": "117"
+            "keyColor": "#E63946",
+            "outputColor": "#EADCDE"
         },
 
         {
             "type": "disk",
             "key": "├╴ Disk     │",
-            "keyColor": "75",
-            "outputColor": "117",
+            "keyColor": "#E63946",
+            "outputColor": "#EADCDE",
             "format": "{13} {1} / {2} ({3})"
         },
 
         {
             "type": "display",
             "key": "├╴󰍹 Display  │",
-            "keyColor": "75",
-            "outputColor": "117",
+            "keyColor": "#E63946",
+            "outputColor": "#EADCDE",
             "format": "{1}×{2} @ {3}Hz"
         },
 
         {
             "type": "battery",
             "key": "├╴ Battery  │",
-            "keyColor": "75",
-            "outputColor": "117",
+            "keyColor": "#E63946",
+            "outputColor": "#EADCDE",
             "format": "{10} {4} ({5})"
         },
 
         {
             "type": "custom",
             "format": "╰───────────────────────────────────────────────────╯",
-            "outputColor": "75"
+            "outputColor": "#E63946"
         },
 
         "break",
@@ -206,34 +206,34 @@
         {
             "type": "custom",
             "format": "╭─ Network ─────────────────────────────────────────╮",
-            "outputColor": "75"
+            "outputColor": "#E63946"
         },
 
         {
             "type": "localip",
             "key": "├╴󰩟 IP       │",
-            "keyColor": "75",
-            "outputColor": "117"
+            "keyColor": "#E63946",
+            "outputColor": "#EADCDE"
         },
 
         {
             "type": "wifi",
             "key": "├╴  Wi-Fi    │",
-            "keyColor": "75",
-            "outputColor": "117"
+            "keyColor": "#E63946",
+            "outputColor": "#EADCDE"
         },
 
         {
             "type": "ethernet",
             "key": "├╴󰈀 Ethernet │",
-            "keyColor": "75",
-            "outputColor": "117"
+            "keyColor": "#E63946",
+            "outputColor": "#EADCDE"
         },
 
         {
             "type": "custom",
             "format": "╰───────────────────────────────────────────────────╯",
-            "outputColor": "75"
+            "outputColor": "#E63946"
         },
 
         "break",
@@ -246,35 +246,35 @@
         {
             "type": "custom",
             "format": "╭─ Status ──────────────────────────────────────────╮",
-            "outputColor": "75"
+            "outputColor": "#E63946"
         },
 
         {
             "type": "loadavg",
             "key": "├╴󰊚 Load     │",
-            "keyColor": "75",
-            "outputColor": "117"
+            "keyColor": "#E63946",
+            "outputColor": "#EADCDE"
         },
 
         {
             "type": "swap",
             "key": "├╴󰓡 Swap     │",
-            "keyColor": "75",
-            "outputColor": "117"
+            "keyColor": "#E63946",
+            "outputColor": "#EADCDE"
         },
 
         {
             "type": "sound",
             "key": "├╴ Volume   │",
-            "keyColor": "75",
-            "outputColor": "117",
+            "keyColor": "#E63946",
+            "outputColor": "#EADCDE",
             "format": "{5} {3}"
         },
 
         {
             "type": "custom",
             "format": "╰───────────────────────────────────────────────────╯",
-            "outputColor": "75"
+            "outputColor": "#E63946"
         }
     ]
 }

@@ -1,39 +1,39 @@
 /* Zproger's Rofi layout, recolored to match the local Polybar palette. */
 
 * {
-    bg-col:       #1a202b;
-    bg-col-light: #202936;
-    border-col:   #161B24;
-    selected-col: #303b4d;
-    fg-col:       #D8DEE9;
-    fg-col2:      #89B4FA;
-    blue:         #89B4FA;
-    grey:         #6F7785;
+    bg-col:       #1A1215;
+    bg-col-light: #241A1D;
+    border-col:   #E63946;
+    selected-col: #2E1F23;
+    fg-col:       #EADCDE;
+    fg-col2:      #FF5A63;
+    blue:         #E63946;
+    grey:         #8C7376;
 
     /* Override Rofi's built-in light palette used by state-specific rows. */
-    background:                   #1a202b;
-    foreground:                   #D8DEE9;
-    lightbg:                      #202936;
-    lightfg:                      #D8DEE9;
-    red:                          #F38BA8;
-    normal-background:            #1a202b;
-    normal-foreground:            #D8DEE9;
-    alternate-normal-background:  #1a202b;
-    alternate-normal-foreground:  #D8DEE9;
-    active-background:            #1a202b;
-    active-foreground:            #A6E3A1;
-    urgent-background:            #1a202b;
-    urgent-foreground:            #F38BA8;
-    selected-normal-background:   #303b4d;
-    selected-normal-foreground:   #D8DEE9;
-    selected-active-background:   #303b4d;
-    selected-active-foreground:   #D8DEE9;
-    selected-urgent-background:  #303b4d;
-    selected-urgent-foreground:  #D8DEE9;
-    alternate-active-background: #1a202b;
-    alternate-active-foreground: #A6E3A1;
-    alternate-urgent-background: #1a202b;
-    alternate-urgent-foreground: #F38BA8;
+    background:                   #1A1215;
+    foreground:                   #EADCDE;
+    lightbg:                      #241A1D;
+    lightfg:                      #EADCDE;
+    red:                          #FF5A63;
+    normal-background:            #1A1215;
+    normal-foreground:            #EADCDE;
+    alternate-normal-background:  #1A1215;
+    alternate-normal-foreground:  #EADCDE;
+    active-background:            #1A1215;
+    active-foreground:            #E0A458;
+    urgent-background:            #1A1215;
+    urgent-foreground:            #FF5A63;
+    selected-normal-background:   #2E1F23;
+    selected-normal-foreground:   #FF5A63;
+    selected-active-background:   #2E1F23;
+    selected-active-foreground:   #FF5A63;
+    selected-urgent-background:  #2E1F23;
+    selected-urgent-foreground:  #FF5A63;
+    alternate-active-background: #1A1215;
+    alternate-active-foreground: #E0A458;
+    alternate-urgent-background: #1A1215;
+    alternate-urgent-foreground: #FF5A63;
 }
 
 configuration {
@@ -70,7 +70,7 @@ mainbox {
 inputbar {
     children: [prompt, entry];
     background-color: @bg-col;
-    border-radius: 5px;
+    border-radius: 2px;
     padding: 2px;
 }
 
@@ -78,7 +78,7 @@ prompt {
     background-color: @blue;
     padding: 6px;
     text-color: @bg-col;
-    border-radius: 3px;
+    border-radius: 1px;
     margin: 20px 0px 0px 20px;
 }
 

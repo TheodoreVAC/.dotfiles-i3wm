@@ -83,28 +83,28 @@ ZSH_THEME="oh-my-via/my-via"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-# zsh-syntax-highlighting — blue theme
+# zsh-syntax-highlighting — red theme
 # zsh-syntax-highlighting
 typeset -A ZSH_HIGHLIGHT_STYLES
 
-ZSH_HIGHLIGHT_STYLES[command]='fg=#60a5fa'
-ZSH_HIGHLIGHT_STYLES[builtin]='fg=#60a5fa'
-ZSH_HIGHLIGHT_STYLES[function]='fg=#93c5fd'
-ZSH_HIGHLIGHT_STYLES[alias]='fg=#93c5fd'
+ZSH_HIGHLIGHT_STYLES[command]='fg=#E63946'
+ZSH_HIGHLIGHT_STYLES[builtin]='fg=#E63946'
+ZSH_HIGHLIGHT_STYLES[function]='fg=#FF5A63'
+ZSH_HIGHLIGHT_STYLES[alias]='fg=#FF5A63'
 
-ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=#f87171'
-ZSH_HIGHLIGHT_STYLES[reserved-word]='fg=#60a5fa'
+ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=#FF5A63'
+ZSH_HIGHLIGHT_STYLES[reserved-word]='fg=#E63946'
 
-ZSH_HIGHLIGHT_STYLES[path]='fg=#bfdbfe'
-ZSH_HIGHLIGHT_STYLES[globbing]='fg=#93c5fd'
+ZSH_HIGHLIGHT_STYLES[path]='fg=#E0A458'
+ZSH_HIGHLIGHT_STYLES[globbing]='fg=#C2555F'
 
-ZSH_HIGHLIGHT_STYLES[single-quoted]='fg=#93c5fd'
-ZSH_HIGHLIGHT_STYLES[double-quoted]='fg=#93c5fd'
+ZSH_HIGHLIGHT_STYLES[single-quoted]='fg=#E9843F'
+ZSH_HIGHLIGHT_STYLES[double-quoted]='fg=#E9843F'
 
-ZSH_HIGHLIGHT_STYLES[comment]='fg=#64748b'
+ZSH_HIGHLIGHT_STYLES[comment]='fg=#8C7376'
 
 # autosuggestions
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#3b5f8a'
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#7a3e44'
 
 plugins=(
     git
@@ -115,6 +115,12 @@ plugins=(
 _zsh_autosuggestions=/usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 _zsh_highlighting=/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 [[ -r "$_zsh_autosuggestions" ]] || plugins+=(zsh-autosuggestions)
+
+# oh-my-via: красный username без @хоста (переопределяет дефолты темы)
+typeset -g OHMYVIA_CONTEXT_HOSTNAME=empty
+typeset -g OHMYVIA_CONTEXT_USER_COLOR='%B%F{#E63946}'
+typeset -g OHMYVIA_CONTEXT_ROOT_COLOR='%B%F{#E63946}'
+typeset -g OHMYVIA_STATUS_OK_COLOR='%F{#E63946}'
 
 if [[ -r "$ZSH/oh-my-zsh.sh" ]]; then
     source "$ZSH/oh-my-zsh.sh"
@@ -159,7 +165,7 @@ alias ll='eza -lah --icons'
 alias la='eza -a --icons'
 alias l='eza -lah --icons'
 alias lt='eza --tree --icons'
-export EZA_COLORS='di=38;2;137;180;250:ln=38;2;111;119;133:ex=38;2;166;227;161:fi=38;2;216;222;233:pi=38;2;250;179;135:so=38;2;203;166;247:bd=38;2;250;179;135:cd=38;2;250;179;135:da=38;2;111;119;133:uu=38;2;216;222;233:gu=38;2;111;119;133:xx=38;2;111;119;133:*.mkv=38;2;250;179;135:*.mp4=38;2;250;179;135:*.mp4v=38;2;250;179;135:*.m4v=38;2;250;179;135:*.mov=38;2;250;179;135:*.qt=38;2;250;179;135:*.avi=38;2;250;179;135:*.webm=38;2;250;179;135:*.mpg=38;2;250;179;135:*.mpeg=38;2;250;179;135:*.m2v=38;2;250;179;135:*.m2ts=38;2;250;179;135:*.mts=38;2;250;179;135:*.vob=38;2;250;179;135:*.wmv=38;2;250;179;135:*.asf=38;2;250;179;135:*.rm=38;2;250;179;135:*.rmvb=38;2;250;179;135:*.flc=38;2;250;179;135:*.fli=38;2;250;179;135:*.flv=38;2;250;179;135:*.ogv=38;2;250;179;135:*.ogx=38;2;250;179;135:*.3gp=38;2;250;179;135:*.3g2=38;2;250;179;135:*.mxf=38;2;250;179;135'
+export EZA_COLORS='di=38;2;230;57;70:ln=38;2;255;138;144:ex=38;2;224;164;88:fi=38;2;234;220;222:pi=38;2;233;132;63:so=38;2;194;85;95:bd=38;2;233;132;63:cd=38;2;233;132;63:da=38;2;140;115;118:uu=38;2;234;220;222:gu=38;2;140;115;118:xx=38;2;194;85;95:*.mkv=38;2;233;132;63:*.mp4=38;2;233;132;63:*.mp4v=38;2;233;132;63:*.m4v=38;2;233;132;63:*.mov=38;2;233;132;63:*.qt=38;2;233;132;63:*.avi=38;2;233;132;63:*.webm=38;2;233;132;63:*.mpg=38;2;233;132;63:*.mpeg=38;2;233;132;63:*.m2v=38;2;233;132;63:*.m2ts=38;2;233;132;63:*.mts=38;2;233;132;63:*.vob=38;2;233;132;63:*.wmv=38;2;233;132;63:*.asf=38;2;233;132;63:*.rm=38;2;233;132;63:*.rmvb=38;2;233;132;63:*.flc=38;2;233;132;63:*.fli=38;2;233;132;63:*.flv=38;2;233;132;63:*.ogv=38;2;233;132;63:*.ogx=38;2;233;132;63:*.3gp=38;2;233;132;63:*.3g2=38;2;233;132;63:*.mxf=38;2;233;132;63'
 export PATH="$HOME/.local/bin:$PATH"
 
 # Cursor: blinking vertical bar

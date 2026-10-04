@@ -16,5 +16,33 @@ family = "DejaVu Sans Mono"
 style = "Italic"
 
 [colors.primary]
-background = "#111720"
-foreground = "#D8DEE9"
+background = "#1A1215"
+foreground = "#EADCDE"
+
+[colors.cursor]
+cursor = "#E63946"
+text = "#1A1215"
+
+[colors.selection]
+background = "#E63946"
+foreground = "#1A1215"
+
+[colors.normal]
+black = "#241A1D"
+red = "#E63946"
+green = "#E0A458"
+yellow = "#E9843F"
+blue = "#FF5A63"
+magenta = "#C2555F"
+cyan = "#D9A88F"
+white = "#EADCDE"
+
+[colors.bright]
+black = "#4A3B3E"
+red = "#FF5A63"
+green = "#E0B44A"
+yellow = "#FF9A6B"
+blue = "#FF7A80"
+magenta = "#E08A92"
+cyan = "#F0C8A8"
+white = "#FFF0F1"
